@@ -1,77 +1,218 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
-import "antd/dist/antd.css";
-import { UserOutlined } from "@ant-design/icons";
-import { Layout, Typography, Avatar, Menu, Breadcrumb } from "antd";
+import BOSidebar from "../backOffice/BOSidebar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
-
-const { SubMenu } = Menu;
-const { Header, Footer, Sider, Content } = Layout;
-const { Title } = Typography;
+  faEye
+} from "@fortawesome/free-solid-svg-icons";
 
 class ViewOrders extends Component {
   render() {
     return (
-      <Layout>
-        <Header style={{ background: "#1E90FF", padding: "20px" }}>
-          <Avatar style={{ float: "right" }} icon={<UserOutlined />} />
-          <Title style={{ color: "#ffffff" }} level={4}>
-            BackOffice Management System
-          </Title>
-        </Header>
-        <Layout>
-          <Sider style={{ background: "white" }}>
-            <Menu defaultOpenKeys={["Dashboard"]} mode="inline">
-              <Menu.Item key="Dashboard">
-                <Link to="/backoffice/backOfficeDashboard">
-                  <span>
-                    <AppstoreOutlined />
-                    <span>Dashboard</span>
-                  </span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="Orders">
-                <span>
-                  <MailOutlined />
-                  <span>Orders</span>
-                </span>
-              </Menu.Item>
-              <SubMenu
-                title={
-                  <span>
-                    <SettingOutlined />
-                    <span>Other Options</span>
-                  </span>
-                }
-              >
-                <Menu.ItemGroup key="other" title="Others">
-                  <Menu.Item key="other01">Dummy data 01</Menu.Item>
-                  <Menu.Item key="other02">Dummy data 02</Menu.Item>
-                  <Menu.Item key="other03">Dummy data 03</Menu.Item>
-                </Menu.ItemGroup>
-              </SubMenu>
-            </Menu>
-          </Sider>
-          <Layout>
-            <Content style={{ margin: "5px 40px 0" }}>
-              <Breadcrumb style={{ margin: "16px 0" }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>Orders</Breadcrumb.Item>
-              </Breadcrumb>
-              <div style={{ background: "white", padding: 24, minHeight: 560 }}>
-                <h1>Oders View</h1>
+      <div className="bg-light wd-wrapper">
+        <BOSidebar />
+        <div className="wrapper-wx">
+          <div className="container-fluid" >
+            <div className="row">
+              <div class="col">
+                <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
+                  New Orders
+                  <div className="col-12">
+                            <div className="card border-0 shadow-sm rounded mt-3 bg-white pb-2">
+                                <div className="table-responsive ">
+                                    <table className="table table-stripped">
+                                    <thead>
+                                        <tr style={{color: "#1E90FF"}}>
+                                        <th>OrderID</th>
+                                        <th>Customer Name</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <td>#10985</td>
+                                      <td>Osanda Gamage</td>
+                                      <td>Rs 15,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    <tbody>
+                                      <td>#20985</td>
+                                      <td>Thisun Silva</td>
+                                      <td>Rs 55,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    <tbody>
+                                      <td>#34985</td>
+                                      <td>Dilain Gunasekara</td>
+                                      <td>Rs 75,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                         </div>
+                </h6>
               </div>
-            </Content>
-            <Footer style={{ textAlign: "center" }}>
-              ©2020 Designed and Developed by xUnit Labs Solutions
-            </Footer>
-          </Layout>
-        </Layout>
-      </Layout>
+              <div class="col">
+                <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
+                  Ready to Delivery
+                  <div className="col-12">
+                            <div className="card border-0 shadow-sm rounded mt-3 bg-white pb-2">
+                                <div className="table-responsive ">
+                                    <table className="table table-stripped">
+                                    <thead>
+                                        <tr style={{color: "#1E90FF"}}>
+                                        <th>OrderID</th>
+                                        <th>CC Name</th>
+                                        <th>Vehicle No</th>
+                                        <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <td>#10985</td>
+                                      <td>Osanda Gamage</td>
+                                      <td>Pending</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    <tbody>
+                                      <td>#20985</td>
+                                      <td>Thisun Silva</td>
+                                      <td>Rs 55,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                   
+                                    </table>
+                                </div>
+                            </div>
+                         </div>
+                </h6>
+              </div>
+              <div className="col-12">
+                <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
+                  Complete Orders 
+                  <div className="col-12">
+                            <div className="card border-0 shadow-sm rounded mt-3 bg-white pb-2">
+                                <div className="table-responsive ">
+                                    <table className="table table-stripped">
+                                    <thead>
+                                        <tr style={{color: "#1E90FF"}}>
+                                        <th>OrderID</th>
+                                        <th>Customer Name</th>
+                                        <th>Delivered Date</th>
+                                        <th>Vehicle No</th>
+                                        <th>CC Name</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <td>#10985</td>
+                                      <td>Osanda Gamage</td>
+                                      <td>June 12 , 2020</td>
+                                      <td>sp BEF 2030</td>
+                                      <td>Aruna Homage</td>
+                                      <td>Rs 15,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    <tbody>
+                                      <td>#20985</td>
+                                      <td>Thisun Silva</td>
+                                      <td>June 15 , 2020</td>
+                                      <td>wp SAP 1010</td>
+                                      <td>Thoshan Gallage</td>
+                                      <td>Rs 55,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    <tbody>
+                                      <td>#34985</td>
+                                      <td>Dilain Gunasekara</td>
+                                      <td>June 20 , 2020</td>
+                                      <td>sp WE - 3243</td>
+                                      <td>Dipal Jayakodhi</td>
+                                      <td>Rs 75,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    <tbody>
+                                      <td>#10985</td>
+                                      <td>Osanda Gamage</td>
+                                      <td>June 12 , 2020</td>
+                                      <td>sp BEF 2030</td>
+                                      <td>Aruna Homage</td>
+                                      <td>Rs 15,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    <tbody>
+                                      <td>#20985</td>
+                                      <td>Thisun Silva</td>
+                                      <td>June 15 , 2020</td>
+                                      <td>wp SAP 1010</td>
+                                      <td>Thoshan Gallage</td>
+                                      <td>Rs 55,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    <tbody>
+                                      <td>#34985</td>
+                                      <td>Dilain Gunasekara</td>
+                                      <td>June 20 , 2020</td>
+                                      <td>sp WE - 3243</td>
+                                      <td>Dipal Jayakodhi</td>
+                                      <td>Rs 75,000.00</td>
+                                      <td>
+                                        <button className="btn btn-primary btn-sm px-2 mr-2">
+                                          <FontAwesomeIcon icon={faEye} />
+                                        </button>
+                                      </td>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                         </div>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

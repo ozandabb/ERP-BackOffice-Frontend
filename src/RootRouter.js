@@ -12,11 +12,7 @@ class App extends React.Component {
         <Route exact path="/admin" component={Adminlogin} />
         <Route exact path="/backoffice" component={BackOffice} />
         <Route exact path="/backoffice/orders" component={ViewOrders} />
-        <Route
-          exact
-          path="/backoffice/backofficeDashboard"
-          component={BackOfficeDashboard}
-        />
+        <Route exact path="/" component={BackOfficeDashboard} />
         <Route exact path="/manager" component={ManagerLogin} />
       </Router>
     );

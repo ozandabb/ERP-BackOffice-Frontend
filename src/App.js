@@ -1,6 +1,6 @@
 import React from "react";
 import RootRouter from "./RootRouter";
-import "./App.css";
+import "../src/asserts/commoncss/alerts.css";
 
 function App() {
   return <RootRouter />;
