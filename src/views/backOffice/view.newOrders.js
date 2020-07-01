@@ -71,7 +71,8 @@ class ViewOrders extends Component {
                                                         <h6>Registered Date : Jan 12 2020 </h6> 
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-success form-control">View More Details</button>
+                                        <Link to="/backoffice/orders/neworder/customer">
+                                        <button type="button" class="btn btn-success form-control">View More Details</button></Link>
                                     </div>
                                 </div>
                         </div>
