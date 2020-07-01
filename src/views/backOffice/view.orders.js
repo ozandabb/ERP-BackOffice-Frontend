@@ -34,9 +34,11 @@ class ViewOrders extends Component {
                                       <td>Osanda Gamage</td>
                                       <td>Rs 15,000.00</td>
                                       <td>
+                                      <Link to="/backoffice/orders/neworder">
                                         <button className="btn btn-primary btn-sm px-2 mr-2">
                                           <FontAwesomeIcon icon={faEye} />
                                         </button>
+                                        </Link>
                                       </td>
                                     </tbody>
                                     <tbody>
@@ -44,9 +46,11 @@ class ViewOrders extends Component {
                                       <td>Thisun Silva</td>
                                       <td>Rs 55,000.00</td>
                                       <td>
+                                      <Link to="/backoffice/orders/neworder">
                                         <button className="btn btn-primary btn-sm px-2 mr-2">
                                           <FontAwesomeIcon icon={faEye} />
                                         </button>
+                                        </Link>
                                       </td>
                                     </tbody>
                                     <tbody>
@@ -54,9 +58,11 @@ class ViewOrders extends Component {
                                       <td>Dilain Gunasekara</td>
                                       <td>Rs 75,000.00</td>
                                       <td>
+                                      <Link to="/backoffice/orders/neworder">
                                         <button className="btn btn-primary btn-sm px-2 mr-2">
                                           <FontAwesomeIcon icon={faEye} />
                                         </button>
+                                        </Link>
                                       </td>
                                     </tbody>
                                     </table>

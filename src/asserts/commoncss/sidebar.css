@@ -1,5 +1,5 @@
 .sidebar_wrap {
-  background: #ffffff;
+  background: #393f46;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   -moz-transition: width 0.8s ease-in-out;
   -o-transition: width 0.8s ease-in-out;
   transition: width 0.8s ease-in-out;
-  width: 245px;
+  width: 200px;
 }
 
 .sidebar-top {
@@ -32,7 +32,7 @@ ul.sidebar {
 }
 
 .categorylink {
-  color: #000000;
+  color: #ffffff;
   cursor: pointer;
   width: 100%;
 }
@@ -52,7 +52,7 @@ ul.sidebar {
 }
 
 .wrapper-wx {
-  padding-left: 245px;
+  padding-left: 200px;
   -webkit-transition: padding 0.8s ease-in-out;
   -moz-transition: padding 0.8s ease-in-out;
   -o-transition: padding 0.8s ease-in-out;
