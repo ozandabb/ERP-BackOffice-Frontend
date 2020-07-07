@@ -87,13 +87,18 @@ class BOSidebar extends React.Component {
               </li>
             </Link>
 
-            <Link to="/backoffice/orders">
+            
               <li className="listitem" className={`listitem`}>
                 <h6 className={`categorylink px-2`}>Orders</h6>
+                <ul className="sidebar">
+                <Link to="/backoffice/viewNeworder"><li className="listitem2" className={`listitem2`}><p className={`categorylink px-2`}>New Orders</p></li> </Link>
+                <Link to="/backoffice/readyToDelivery"><li className="listitem2" className={`listitem2`}><p className={`categorylink px-2`}>Ready to Delivery</p></li></Link>
+                <Link to="/backoffice/completeOrders"> <li className="listitem2" className={`listitem2`}><p className={`categorylink px-2`}>Complete Orders</p></li></Link>
+                </ul>
               </li>
-            </Link>
+           
 
-            <Link to="/admin/products/add">
+            <Link to="/backoffice/returnItemDashboard">
               <li
                 className={`listitem ${
                   active == "add_products" && "active_category"
@@ -104,7 +109,7 @@ class BOSidebar extends React.Component {
                     active == "add_products" && "active_category"
                   }`}
                 >
-                  Add Products
+                 Return Items
                 </h6>
               </li>
             </Link>

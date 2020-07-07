@@ -21,7 +21,7 @@ class ViewOrderProgress extends Component {
                                 Order ID : #973467
                             </h5>
                         </div>
-
+                        
                         {/*==================================== Vehicle and CC details column start here ===========================================*/}
                         <div class="col-4">
                                     <div className="row">
@@ -38,7 +38,7 @@ class ViewOrderProgress extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="button" class="btn btn-success form-control">View Vehicle Details</button>
+                                                <Link to="/backoffice/orders/viewVehicleDetails"><button type="button" class="btn btn-success form-control">View Vehicle Details</button></Link>
                                         </div>
                                     </div>
                                     <br></br>
@@ -55,7 +55,7 @@ class ViewOrderProgress extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="button" class="btn btn-success form-control">View CC Details</button>
+                                                <Link to="/backoffice/viewCashCollectorDetails"><button type="button" class="btn btn-success form-control">View CC Details</button></Link>
                                         </div>
                                     </div>
                                     <br></br>
