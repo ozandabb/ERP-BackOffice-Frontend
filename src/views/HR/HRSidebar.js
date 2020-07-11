@@ -77,7 +77,7 @@ class HRSidebar extends React.Component {
             </Link>
            
 
-            <Link to="">
+            <Link to="/hrstaff/supplier_registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Supplier Registration
@@ -85,7 +85,7 @@ class HRSidebar extends React.Component {
               </li>
             </Link>
 
-            <Link to="">
+            <Link to="/hrstaff/employee_registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Employee Registration

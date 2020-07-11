@@ -6,7 +6,7 @@ import "filepond/dist/filepond.min.css";
 // import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import HRSidebar from "../HR/HRSidebar";
 
-class customerReg extends Component {
+class customerReg2 extends Component {
 
     state = {
         selectedOption: null,
@@ -55,49 +55,34 @@ class customerReg extends Component {
                                     
                                     <form className="py-1  px-3" method="POST">
                                         <div className="row">
-
-                                            {/* profile image------------------------ */}
-                                            <div className="col-md-12 mt-3">
-                                                <h6 className="form-label py-1">Add a Profile Image</h6>
-                                                <FilePond
-                                                    ref={ref => (this.pond = ref)}
-                                                    files={this.state.files}
-                                                    allowMultiple={false}
-                                                    onupdatefiles={fileItems => {
-                                                        this.setState({
-                                                            files: fileItems.map(fileItem => fileItem.file)
-                                                        });
-                                                    }}>
-                                                </FilePond>
-                                            </div>
                                         
-                                             {/*---------customer full Name--------------  */}
+                                             {/*---------shop Name--------------  */}
                                              <div className="col-md-7 mt-2">
-                                                <h6 className="form-label py-1">Customer Full Name</h6>
-                                                <input
-                                                    type="text"
-                                                    name="name"
-                                                    style={{fontWeight: "bold"}}
-                                                    // value={name}
-                                                    // onChange={(e) => this.formValueChange(e)}
-                                                    placeholder="Enter Customer Full Name"
-                                                    className="form-control" ></input>
-                                                {/* {errors.name && errors.name.length > 0 &&
-                                                    <h4 className="small text-danger mt-2 font-weight-bold mb-0">{errors.name}</h4>} */}
-                                            </div>
+                                                        <h6 className="form-label py-1">Shop Name</h6>
+                                                        <input
+                                                            type="text"
+                                                            name="name"
+                                                            style={{fontWeight: "bold"}}
+                                                            // value={name}
+                                                            // onChange={(e) => this.formValueChange(e)}
+                                                            placeholder="Enter Shop Name"
+                                                            className="form-control" ></input>
+                                                        {/* {errors.name && errors.name.length > 0 &&
+                                                            <h4 className="small text-danger mt-2 font-weight-bold mb-0">{errors.name}</h4>} */}
+                                                    </div>
 
-                                            {/*---------NIC no--------------  */}
-                                            <div className="col-md-5 mt-2">
-                                                <h6 className="form-label py-1">NIC No</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="price"
-                                                    placeholder="Enter NIC Number"
-                                                    className="form-control" ></input>
-                                            </div>
+                                                    {/*---------Reg no--------------  */}
+                                                    <div className="col-md-5 mt-2">
+                                                        <h6 className="form-label py-1">Contact No</h6>
+                                                        <input
+                                                            type="text"
+                                                            style={{fontWeight: "bold"}}
+                                                            name="price"
+                                                            placeholder="Enter Register Number"
+                                                            className="form-control" ></input>
+                                                    </div>
 
-                                            {/*---------Street Line 1--------------  */}
+                                                    {/*---------Street Line 1--------------  */}
                                             <div className="col-md-6 mt-2">
                                                 <h6 className="form-label py-1">Street Address Line 1</h6>
                                                 <input
@@ -151,43 +136,6 @@ class customerReg extends Component {
                                                     className="form-control" ></input>
                                             </div> 
 
-                                            {/*---------Contact no --------------  */}
-                                            <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Contact Number</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    placeholder="Enter Land Number"
-                                                    className="form-control" ></input>
-                                            </div>
-
-                                            {/*---------Mobile Number --------------  */}
-                                             <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Mobile Number</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    placeholder="Enter Mobile Number"
-                                                    className="form-control" ></input>
-                                            </div>
-
-
-
-                                         
-
-
-                                            <div className="col-md-12 mt-2">
-                                                <div className="d-flex">
-                                                    <Link to="/hrstaff/customer_registration/shopDetails">
-                                                    <button className="px-4 btn btn-dark  btn-sm bold-normal" type="submit">
-                                                       Next</button>
-                                                       </Link>
-                                                </div>
-                                            </div>
-
-                                                    
 
 
                                         </div>
@@ -206,4 +154,4 @@ class customerReg extends Component {
 }
 
 
-export default withRouter(customerReg);
+export default withRouter(customerReg2);

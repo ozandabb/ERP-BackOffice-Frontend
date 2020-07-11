@@ -6,7 +6,7 @@ import "filepond/dist/filepond.min.css";
 // import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import HRSidebar from "../HR/HRSidebar";
 
-class customerReg extends Component {
+class supplierReg extends Component {
 
     state = {
         selectedOption: null,
@@ -47,7 +47,7 @@ class customerReg extends Component {
                         <div class="row">
                             <div className="col-12">
                                 <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
-                                    Customer Registration
+                                Supplier Registration
                                 </h6>
                             </div>
                             <div className="col-12">
@@ -73,7 +73,7 @@ class customerReg extends Component {
                                         
                                              {/*---------customer full Name--------------  */}
                                              <div className="col-md-7 mt-2">
-                                                <h6 className="form-label py-1">Customer Full Name</h6>
+                                                <h6 className="form-label py-1">Supplier Full Name</h6>
                                                 <input
                                                     type="text"
                                                     name="name"
@@ -173,11 +173,6 @@ class customerReg extends Component {
                                                     className="form-control" ></input>
                                             </div>
 
-
-
-                                         
-
-
                                             <div className="col-md-12 mt-2">
                                                 <div className="d-flex">
                                                     <Link to="/hrstaff/customer_registration/shopDetails">
@@ -206,4 +201,4 @@ class customerReg extends Component {
 }
 
 
-export default withRouter(customerReg);
+export default withRouter(supplierReg);

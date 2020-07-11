@@ -20,6 +20,9 @@ import returnItem from "../src/views/backOffice/returnItems/returnItem"
 //HR routes start here
 import HRDashboard from "../src/views/HR/HRDashboard"
 import customerReg from "../src/views/HR/customerReg"
+import customerReg2 from "./views/HR/customerReg2"
+import supplierReg from "../src/views/HR/supplierReg"
+import employeeReg from "../src/views/HR/employeeReg"
 import driverProfile from "../src/views/HR/driverProfile"
 import vehicleProfile from "../src/views/HR/vehicleProfiles"
 import customerProfile from "../src/views/HR/customerProfile"
@@ -60,6 +63,9 @@ class App extends React.Component {
         {/* HR routes starts here */}
         <Route exact path="/hrstaff" component={HRDashboard} />
         <Route exact path="/hrstaff/customer_registration" component={customerReg} />
+        <Route exact path="/hrstaff/customer_registration/shopDetails" component={customerReg2} />
+        <Route exact path="/hrstaff/supplier_registration" component={supplierReg} />
+        <Route exact path="/hrstaff/employee_registration" component={employeeReg} />
         <Route exact path="/hrstaff/driverProfile" component={driverProfile} />
         <Route exact path="/hrstaff/vehicleProfile" component={vehicleProfile} />
         <Route exact path="/hrstaff/customerProfile" component={customerProfile} />
