@@ -19,6 +19,7 @@ import returnItem from "../src/views/backOffice/returnItems/returnItem"
 
 //HR routes start here
 import HRDashboard from "../src/views/HR/HRDashboard"
+import customerReg from "../src/views/HR/customerReg"
 //HR routes ENDS here
 
 //Warehouse Management start here
@@ -51,7 +52,8 @@ class App extends React.Component {
         {/* warehouse management ends here */}
 
         {/* HR routes starts here */}
-        <Route exact path="/hr" component={HRDashboard} />
+        <Route exact path="/hrstaff" component={HRDashboard} />
+        <Route exact path="/hrstaff/customer_registration" component={customerReg} />
         {/* HR routes ends here */}
 
         {/* Manager Routes start here */}

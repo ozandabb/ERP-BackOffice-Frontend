@@ -59,7 +59,7 @@ class HRSidebar extends React.Component {
           </div>
 
           <ul className="sidebar">
-            <Link to="/">
+            <Link to="/hrstaff">
               <li className="listitem" className={`listitem ${ active == "dashboard" && "active_category" }`} >
                 <h6 className={`categorylink px-2 ${ active == "dashboard" && "active_category" }`} >
                   Dashboard
@@ -68,7 +68,7 @@ class HRSidebar extends React.Component {
             </Link>
 
             
-            <Link to="/backoffice/returnItemDashboard">
+            <Link to="/hrstaff/customer_registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Customer Registration
@@ -77,7 +77,7 @@ class HRSidebar extends React.Component {
             </Link>
            
 
-            <Link to="/backoffice/returnItemDashboard">
+            <Link to="">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Supplier Registration
@@ -85,7 +85,7 @@ class HRSidebar extends React.Component {
               </li>
             </Link>
 
-            <Link to="/backoffice/returnItemDashboard">
+            <Link to="">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Employee Registration
@@ -93,10 +93,42 @@ class HRSidebar extends React.Component {
               </li>
             </Link>
 
-            <Link to="/admin/products">
+            <Link to="">
+              <li className={`listitem ${ active == "add_products" && "active_category" }`}>
+                <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
+                 Driver Profile
+                </h6>
+              </li>
+            </Link>
+
+            <Link to="">
+              <li className={`listitem ${ active == "add_products" && "active_category" }`}>
+                <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
+                 Vehivle Profile
+                </h6>
+              </li>
+            </Link>
+
+            <Link to="">
               <li className={`listitem ${  active == "products" && "active_category" }`} >
                 <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
-                  Products
+                  Customer Profile
+                </h6>
+              </li>
+            </Link>
+
+            <Link to="">
+              <li className={`listitem ${  active == "products" && "active_category" }`} >
+                <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
+                  Customer
+                </h6>
+              </li>
+            </Link>
+
+            <Link to="">
+              <li className={`listitem ${  active == "products" && "active_category" }`} >
+                <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
+                  Logout
                 </h6>
               </li>
             </Link>
