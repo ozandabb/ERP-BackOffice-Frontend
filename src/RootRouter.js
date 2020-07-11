@@ -20,6 +20,12 @@ import returnItem from "../src/views/backOffice/returnItems/returnItem"
 //HR routes start here
 import HRDashboard from "../src/views/HR/HRDashboard"
 import customerReg from "../src/views/HR/customerReg"
+import driverProfile from "../src/views/HR/driverProfile"
+import vehicleProfile from "../src/views/HR/vehicleProfiles"
+import customerProfile from "../src/views/HR/customerProfile"
+import viewDriverProfile from "../src/views/HR/view.driverProfile"
+import ViewCustomerProfile from "../src/views/HR/view.customerProfile"
+import viewVehicleProfile from "../src/views/HR/view.vehicleProfile"
 //HR routes ENDS here
 
 //Warehouse Management start here
@@ -54,6 +60,12 @@ class App extends React.Component {
         {/* HR routes starts here */}
         <Route exact path="/hrstaff" component={HRDashboard} />
         <Route exact path="/hrstaff/customer_registration" component={customerReg} />
+        <Route exact path="/hrstaff/driverProfile" component={driverProfile} />
+        <Route exact path="/hrstaff/vehicleProfile" component={vehicleProfile} />
+        <Route exact path="/hrstaff/customerProfile" component={customerProfile} />
+        <Route exact path="/hrstaff/driverProfile/viewDriverProfile" component={viewDriverProfile} />
+        <Route exact path="/hrstaff/customerProfile/ViewCustomerProfile" component={ViewCustomerProfile} />
+        <Route exact path="/hrstaff/vehicleProfile/viewVehicleProfile" component={viewVehicleProfile} />
         {/* HR routes ends here */}
 
         {/* Manager Routes start here */}
