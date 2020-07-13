@@ -1,10 +1,8 @@
 import React from "react";
-import ManagerLogin from "../src/views/manager/manager.login";
-import Adminlogin from "../src/views/admin/admin.login";
+import login from "../src/views/signin/login"
 
 // Back office start here
 import BackOfficeDashboard from "../src/views/backOffice/BackOffice.dashboard";
-import BackOffice from "../src/views/backOffice/backOffice.login";
 import newOrder from "../src/views/backOffice/newOrder";
 import ViewNewOrders from "../src/views/backOffice/view.newOrders";
 import readyToDelivery from "../src/views/backOffice/readyToDelivery";
@@ -40,7 +38,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Route exact path="/admin" component={Adminlogin} />
+        <Route exact path="/" component={login} />
 
         {/* back office route */}
         <Route exact path="/backoffice/viewNeworder" component={newOrder} />
@@ -74,9 +72,6 @@ class App extends React.Component {
         <Route exact path="/hrstaff/vehicleProfile/viewVehicleProfile" component={viewVehicleProfile} />
         {/* HR routes ends here */}
 
-        {/* Manager Routes start here */}
-        <Route exact path="/manager" component={ManagerLogin} />
-        {/* Manager routes ends here */}
        
       </Router>
     );
