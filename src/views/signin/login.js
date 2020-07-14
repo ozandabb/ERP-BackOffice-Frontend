@@ -16,27 +16,34 @@ class login extends Component {
     constructor() {
         super();
         this.state = {
-          uEmail: '',
-          uPass: '',
+          email: '',
+          password: '',
           loading: false,
           isChecked: false,
           errors:{}
         };
       }
 
-  // email start  
-  onChangeuEmail(e) {
+  onChange(e){
     this.setState({
-      uEmail: e.target.value,
+      email: e.target.value,
+      password: e.target.value,
     });
   }
 
-  // password  start 
-  onChangeuPass(e) {
-    this.setState({
-      uPass: e.target.value,
-    });
-  }
+  // // email start  
+  // onChangeuEmail(e) {
+  //   this.setState({
+  //     uEmail: e.target.value,
+  //   });
+  // }
+
+  // // password  start 
+  // onChangeuPass(e) {
+  //   this.setState({
+  //     uPass: e.target.value,
+  //   });
+  // }
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.auth.isAuthenticated){
@@ -50,8 +57,8 @@ class login extends Component {
   async onLogin(e) {
     e.preventDefault();
     const userDate = {
-     uEmail : this.state.uEmail,
-     uPass : this.state.uPass
+      email : this.state.email,
+      password : this.state.password
     };
 
     this.props.loginUser(userDate);
@@ -76,25 +83,25 @@ class login extends Component {
                     <label>Email *</label>
                     <input
                         className={classnames('form-Control', {
-                            'is-invalid' : errors.uEmail
+                            'is-invalid' : errors.email
                         })}
-                      name="uEmail"
+                      name="email"
                       type="email"
                       pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,}$"
                       placeholder="example@gmail.com"
-                      value={this.state.uEmail}
-                      onChange={(e) => this.onChangeuEmail(e)}
+                      value={this.state.email}
+                      onChange={(e) => this.onChange(e)}
                     />
-                    {errors.uEmail && (<div className="invalid-feedback">{errors.uEmail}</div>)}
+                    {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                   </div>
                   <div className="group-input">
                     <label>Password *</label>
                     <input 
                         type="password" className={classnames('form-Control', {
-                            'is-invalid' : errors.uPass
+                            'is-invalid' : errors.password
                         })} 
-                        id="pass" required name="uPass" value={this.state.uPass} onChange={(e) => this.onChangeuPass(e)} />
-                        {errors.uPass && (<div className="invalid-feedback">{errors.uPass}</div>)}
+                        id="pass" required name="password" value={this.state.password} onChange={(e) => this.onChange(e)} />
+                        {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                   </div>
                   <div className="group-input gi-check">
                     <div className="gi-more">
