@@ -23,26 +23,26 @@ class login extends Component {
     };
   }
 
-  onChange(e) {
+  // onChange(e) {
+  //   this.setState({
+  //     email: e.target.value,
+  //     password: e.target.value,
+  //   });
+  // }
+
+  // // email start
+  onChangeuEmail(e) {
     this.setState({
       email: e.target.value,
-      password: e.target.value,
     });
   }
 
-  // // email start
-  // onChangeuEmail(e) {
-  //   this.setState({
-  //     uEmail: e.target.value,
-  //   });
-  // }
-
   // // password  start
-  // onChangeuPass(e) {
-  //   this.setState({
-  //     uPass: e.target.value,
-  //   });
-  // }
+  onChangeuPass(e) {
+    this.setState({
+      password: e.target.value,
+    });
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
@@ -84,17 +84,17 @@ class login extends Component {
                   <label>Email *</label>
                   <input
                     className={classnames('form-Control', {
-                      'is-invalid': errors.uEmail,
+                      'is-invalid': errors.email,
                     })}
-                    name='uEmail'
+                    name='email'
                     type='email'
                     pattern='^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,}$'
                     placeholder='example@gmail.com'
-                    value={this.state.uEmail}
+                    value={this.state.email}
                     onChange={e => this.onChangeuEmail(e)}
                   />
-                  {errors.uEmail && (
-                    <div className='invalid-feedback'>{errors.uEmail}</div>
+                  {errors.email && (
+                    <div className='invalid-feedback'>{errors.email}</div>
                   )}
                 </div>
                 <div className='group-input'>
@@ -102,16 +102,16 @@ class login extends Component {
                   <input
                     type='password'
                     className={classnames('form-Control', {
-                      'is-invalid': errors.uPass,
+                      'is-invalid': errors.password,
                     })}
                     id='pass'
                     required
-                    name='uPass'
-                    value={this.state.uPass}
+                    name='password'
+                    value={this.state.password}
                     onChange={e => this.onChangeuPass(e)}
                   />
-                  {errors.uPass && (
-                    <div className='invalid-feedback'>{errors.uPass}</div>
+                  {errors.password && (
+                    <div className='invalid-feedback'>{errors.password}</div>
                   )}
                 </div>
                 <div className='group-input gi-check'>
