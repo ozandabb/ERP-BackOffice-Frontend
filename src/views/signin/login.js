@@ -15,27 +15,34 @@ class login extends Component {
   constructor() {
     super();
     this.state = {
-      uEmail: '',
-      uPass: '',
+      email: '',
+      password: '',
       loading: false,
       isChecked: false,
       errors: {},
     };
   }
 
-  // email start
-  onChangeuEmail(e) {
+  onChange(e) {
     this.setState({
-      uEmail: e.target.value,
+      email: e.target.value,
+      password: e.target.value,
     });
   }
 
-  // password  start
-  onChangeuPass(e) {
-    this.setState({
-      uPass: e.target.value,
-    });
-  }
+  // // email start
+  // onChangeuEmail(e) {
+  //   this.setState({
+  //     uEmail: e.target.value,
+  //   });
+  // }
+
+  // // password  start
+  // onChangeuPass(e) {
+  //   this.setState({
+  //     uPass: e.target.value,
+  //   });
+  // }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
@@ -49,8 +56,8 @@ class login extends Component {
   async onLogin(e) {
     e.preventDefault();
     const userDate = {
-      email: this.state.uEmail,
-      password: this.state.uPass,
+      email: this.state.email,
+      password: this.state.password,
     };
 
     this.props.loginUser(userDate);
