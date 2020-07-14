@@ -5,7 +5,7 @@ import jwt_decode from 'jwt-decode';
 import Config from "../controllers/Config";
 
 export const loginUser = (userDate) => dispatch => {
-    axios.post(`${Config.host}${Config.port}/api/users/login`, userDate)
+    axios.post(`${Config.host}${Config.port}/api/auth/login`, userDate)
     .then(res => {
         //save to localstorage
          const { token } = res.data;
