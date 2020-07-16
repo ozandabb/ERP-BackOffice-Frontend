@@ -1,11 +1,11 @@
-import login from "../views/signin/login"
+import Home from "../views/signin/home"
 
 let indexRoutes = [
 
     {
-      path: "/",
-      name: "Login",
-      component: login,
+      path: "/home",
+      name: "Home",
+      component: Home,
       exact: true,
     },
 

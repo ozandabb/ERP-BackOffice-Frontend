@@ -23,11 +23,11 @@ class login extends Component {
     };
   }
 
-  componentDidMount(){
-    if(this.props.auth.isAuthenticated){
-      this.props.history.push('/hrstaff');
-    }
-  }
+  // componentDidMount(){
+  //   if(this.props.auth.isAuthenticated){
+  //     this.props.history.push('/backoffice');
+  //   }
+  // }
 
   // // email start
   onChangeuEmail(e) {
@@ -45,8 +45,20 @@ class login extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/hrstaff');
+      console.log(nextProps.auth.user.user.role);
+      if(nextProps.auth.user.user.role == "HR-Manager"){
+        this.props.history.push('./hrstaff');
+      }
+      else if(nextProps.auth.user.user.role == "Back office"){
+        this.props.history.push('./backoffice');
+      }
+      else{
+        C_Config.showAlert(
+          "Please Check User Login Credential");
+        this.props.history.push('./');
+      }
     }
+  
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }

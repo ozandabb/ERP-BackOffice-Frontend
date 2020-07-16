@@ -25,6 +25,7 @@ export const loginUser = userDate => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data,
       })
+      
     );
 };
 

@@ -122,12 +122,15 @@ class BOSidebar extends React.Component {
               </li>
             </Link>
 
-        
+           
               <li onClick={this.onLogoutClick.bind(this)} className={`listitem ${  active == "products" && "active_category"}`}>
+              <Link to="/">
                 <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
                   Logout
                 </h6>
+                </Link>
               </li>
+             
          
           </ul>
         </div>

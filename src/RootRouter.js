@@ -1,5 +1,6 @@
 import React from "react";
 import { connect} from 'react-redux'
+import login from "../src/views/signin/login"
 import indexRoutes from "../src/routes/indexRoute"
 import loginUserRoutes from "../src/routes/loginUserRoutes"
 import backOfficeRoutes from "../src/routes/backOfficeRoutes"
@@ -15,14 +16,15 @@ class App extends React.Component {
     let checkSignedIn =  this.props.auth.isAuthenticated;
     let role = (checkSignedIn) ? this.props.auth.user.user.role : "";
 
-    // if(checkSignedIn == true ){
-    //   routes = [...loginUserRoutes ];
-    //   console.log("mekatath eno bn");
-    // }
+    if(checkSignedIn == null && role == null ){
+      routes = [login ];
+      console.log("mekatath eno bn");
+    }
 
     if(checkSignedIn == true && role == "Back office"){
      routes = [ ...backOfficeRoutes ];
     }
+
 
     if( checkSignedIn == true && role == "HR-Manager" ){
       routes = [ ...HRstaffRoutes  ];
@@ -34,7 +36,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <Router>    
+          <Route exact path="/" component={login} />
         <Switch>
             { this.router().map((prop, key) => {
                 return (

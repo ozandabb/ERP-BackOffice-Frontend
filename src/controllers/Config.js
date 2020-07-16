@@ -23,6 +23,14 @@ class Config {
     return 0;
   }
 
+  setToast(msg){
+    toast( msg, {
+      hideProgressBar: true,
+      closeOnClick: true,
+      draggable: true,
+    });
+  }
+
 
 }
 

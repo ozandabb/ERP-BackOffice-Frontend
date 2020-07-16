@@ -1,11 +1,11 @@
-import HRDashboard from "../views/HR/HRDashboard"
+import Login from "../views/signin/login"
 
 let loginUserRoutes = [
     // my account  route
     {
-      path: "/hrstaff",
-      name: "HRstaff Dashboard",
-      component: HRDashboard,
+      path: "/",
+      name: "Login",
+      component: Login,
       exact: true,
     },
 ]

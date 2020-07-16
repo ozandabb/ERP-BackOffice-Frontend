@@ -125,13 +125,15 @@ class HRSidebar extends React.Component {
               </li>
             </Link>
 
+           
             <li onClick={this.onLogoutClick.bind(this)} className={`listitem ${  active == "products" && "active_category"}`}>
+            <Link to="/">
                 <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                <Link to="/">
                   Logout
-                  </Link>
                 </h6>
+                </Link>
               </li>
+             
 
           </ul>
         </div>

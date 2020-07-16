@@ -32,9 +32,9 @@ function App() {
   return(
 
     <Provider store={store}>
-      <PersistGate persistor={persistor} >
+     
         <RootRouter />
-      </PersistGate>
+   
     </Provider>
 
   );

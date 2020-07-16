@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import HRSidebar from "../HR/HRSidebar";
+import Config from '../../controllers/Config';
+import { connect } from "react-redux";
+import { getAllCustomers } from '../../controllers/customer'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEye
@@ -10,17 +13,28 @@ class customerProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            OrderID: "",
-            CustomerName: "",
-            DueDate:"",
-            DeliveredDate: "",
-            Amount: "",
-            AllNewOrders: [1],
+          loading: true,
+          AllCustomers: [],
         };
       }
 
+      componentDidMount() {
+        this.loadCustomers();
+      }
+    
+      loadCustomers = () => {
+        getAllCustomers()
+          .then((result) => {
+            // console.log(result);
+            this.setState({ AllCustomers: result });
+          })
+          .catch((err) => {
+            // console.log(err);
+          });
+      };
+
     render() {
-        const { AllNewOrders } = this.state;
+        const { AllCustomers } = this.state;
       return (
         <div className="bg-light wd-wrapper">
         <HRSidebar />
@@ -46,8 +60,8 @@ class customerProfile extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {AllNewOrders.map((item) =>
-                                            this.renderAllNewOrders(item)
+                                        {AllCustomers.map((item) =>
+                                            this.renderAllNewCustomers(item)
                                         )}
                                         </tbody>
                                     </table>
@@ -62,12 +76,12 @@ class customerProfile extends Component {
       );
     }
 
-    renderAllNewOrders = (item) => {
+    renderAllNewCustomers = (item) => {
         return (
-            <tr>
-                <td> {item.OrderID}</td>
-                <td>{item.CustomerName}</td>
-                <td>{item.DueDate}</td>
+            <tr key={item._id}>
+                <td>{item.customerId}</td>
+                <td>{item.customerName}</td>
+                <td>{item.address}</td>
                 {/* <td>{item.DeliveredDate}</td>
                 <td>{item.Amount}</td> */}
                 <td>
@@ -81,7 +95,8 @@ class customerProfile extends Component {
         );
     }
 }
+const mapStateToProps = state => ({
+    auth: state.auth || {},
+  });
 
-
-
-export default withRouter(customerProfile);
+  export default connect(mapStateToProps)(withRouter(customerProfile));
