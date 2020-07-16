@@ -9,7 +9,8 @@ export const loginUser = userDate => dispatch => {
     .post(`${Config.host}${Config.port}/api/auth`, userDate)
     .then(res => {
       //save to localstorage
-      const { token } = res.data;
+      const { token, userRole } = res.data;
+      // console.log(userRole);
       //set token to local storage
       localStorage.setItem('jwtToken', token);
       //set token to auth header
@@ -34,3 +35,13 @@ export const setCurrentUser = decoded => {
     payload: decoded,
   };
 };
+
+//user logout
+export const logoutUser = () => dispatch => {
+    //remove token from local storage
+    localStorage.removeItem('jwtToken');
+    //remove auth heder
+    setAuthToken(false);
+    //set current user
+    dispatch(setCurrentUser({}));
+}

@@ -1,5 +1,8 @@
 /*  eslint-disable */
 import React from "react";
+import PropType from 'prop-types';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/authAction';
 import "../../asserts/commoncss/sidebar.css";
 // import "../../asserts/commoncss/bootstrap.min.css";
 import { Link, withRouter } from "react-router-dom";
@@ -28,6 +31,11 @@ class BOSidebar extends React.Component {
     this.state = {
       side_bar_toggle: false,
     };
+  }
+
+  onLogoutClick(e){
+    e.preventDefault();
+    this.props.logoutUser();
   }
 
   render() {
@@ -114,21 +122,13 @@ class BOSidebar extends React.Component {
               </li>
             </Link>
 
-            <Link to="/admin/products">
-              <li
-                className={`listitem ${
-                  active == "products" && "active_category"
-                }`}
-              >
-                <h6
-                  className={`categorylink px-2 ${
-                    active == "products" && "active_category"
-                  }`}
-                >
-                  Products
+        
+              <li onClick={this.onLogoutClick.bind(this)} className={`listitem ${  active == "products" && "active_category"}`}>
+                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
+                  Logout
                 </h6>
               </li>
-            </Link>
+         
           </ul>
         </div>
       </div>
@@ -136,4 +136,13 @@ class BOSidebar extends React.Component {
   }
 }
 
-export default withRouter(BOSidebar);
+BOSidebar.PropType = {
+  logoutUser: PropType.func.isRequired,
+  auth: PropType.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logoutUser }) (BOSidebar);

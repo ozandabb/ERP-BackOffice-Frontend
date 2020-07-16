@@ -1,5 +1,8 @@
 /*  eslint-disable */
 import React from "react";
+import PropType from 'prop-types';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/authAction';
 import "../../asserts/commoncss/sidebar.css";
 // import "../../asserts/commoncss/bootstrap.min.css";
 import { Link, withRouter } from "react-router-dom";
@@ -30,12 +33,17 @@ class HRSidebar extends React.Component {
     };
   }
 
+  onLogoutClick(e){
+    e.preventDefault();
+    this.props.logoutUser();
+  }
+
   render() {
     const { side_bar_toggle } = this.state;
     const { active } = this.props;
     return (
       <div>
-        <nav class="navbar  py-0 shadow-sm  fixed-top" style={{ background: "#1E90FF" }} >
+        <nav className="navbar  py-0 shadow-sm  fixed-top" style={{ background: "#1E90FF" }} >
           <span className="navbar-brand mb-0 h6 text-light ml-2">
             HR Management System
             <FontAwesomeIcon onClick={() => this.setState({ side_bar_toggle: !this.state.side_bar_toggle, }) }
@@ -117,13 +125,13 @@ class HRSidebar extends React.Component {
               </li>
             </Link>
 
-            <Link to="">
-              <li className={`listitem ${  active == "products" && "active_category" }`} >
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
+            <li onClick={this.onLogoutClick.bind(this)} className={`listitem ${  active == "products" && "active_category"}`}>
+                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
+                <Link to="/">
                   Logout
+                  </Link>
                 </h6>
               </li>
-            </Link>
 
           </ul>
         </div>
@@ -132,4 +140,13 @@ class HRSidebar extends React.Component {
   }
 }
 
-export default withRouter(HRSidebar);
+HRSidebar.PropType = {
+  logoutUser: PropType.func.isRequired,
+  auth: PropType.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logoutUser }) (HRSidebar);

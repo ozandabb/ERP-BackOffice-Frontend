@@ -23,12 +23,11 @@ class login extends Component {
     };
   }
 
-  // onChange(e) {
-  //   this.setState({
-  //     email: e.target.value,
-  //     password: e.target.value,
-  //   });
-  // }
+  componentDidMount(){
+    if(this.props.auth.isAuthenticated){
+      this.props.history.push('/hrstaff');
+    }
+  }
 
   // // email start
   onChangeuEmail(e) {
@@ -46,7 +45,7 @@ class login extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/backoffice');
+      this.props.history.push('/hrstaff');
     }
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
@@ -60,9 +59,10 @@ class login extends Component {
       password: this.state.password,
     };
 
-    this.props.loginUser(userDate);
+     this.props.loginUser(userDate);
 
     console.log(userDate);
+    
   }
 
   render() {
@@ -83,9 +83,10 @@ class login extends Component {
                 <div className='group-input'>
                   <label>Email *</label>
                   <input
-                    className={classnames('form-Control', {
-                      'is-invalid': errors.email,
-                    })}
+                  // className="form-control"
+                  className={classnames("form-control form-control-lg", {
+                    "is-invalid": errors.email
+                  })}
                     name='email'
                     type='email'
                     pattern='^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,}$'
@@ -93,17 +94,18 @@ class login extends Component {
                     value={this.state.email}
                     onChange={e => this.onChangeuEmail(e)}
                   />
-                  {errors.email && (
+                  {/* {errors.email && (
                     <div className='invalid-feedback'>{errors.email}</div>
-                  )}
+                  )} */}
                 </div>
                 <div className='group-input'>
                   <label>Password *</label>
                   <input
                     type='password'
-                    className={classnames('form-Control', {
-                      'is-invalid': errors.password,
-                    })}
+                    className="form-control"
+                    // className={classnames('form-Control', {
+                    //   'is-invalid': errors.password,
+                    // })}
                     id='pass'
                     required
                     name='password'
