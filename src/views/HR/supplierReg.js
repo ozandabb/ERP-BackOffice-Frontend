@@ -38,6 +38,7 @@ class supplierReg extends Component {
         
         }).then((result) => {
             Config.setToast(" Supplier Added Successfully");
+            this.props.history.push("/hrstaff/supplierProfile")
           })
           .catch((err) => {
             console.log(err);

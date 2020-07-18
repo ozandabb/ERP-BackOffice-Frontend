@@ -52,8 +52,11 @@ class login extends Component {
       else if(nextProps.auth.user.user.role == "Back office"){
         this.props.history.push('./backoffice');
       }
+      else if(nextProps.auth.user.user.role == "Admin"){
+        this.props.history.push('./admin');
+      }
       else{
-        C_Config.showAlert(
+        C_Config.setToast(
           "Please Check User Login Credential");
         this.props.history.push('./');
       }
@@ -99,7 +102,6 @@ class login extends Component {
                   })}
                     name='email'
                     type='email'
-                    pattern='^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,}$'
                     placeholder='example@gmail.com'
                     value={this.state.email}
                     onChange={e => this.onChangeuEmail(e)}

@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
-import HRSidebar from "../HR/HRSidebar";
+import AdminSidear from "../admin/Admin_Sidebar";
 
-class HRDashboard extends Component {
+class adminDashboard extends Component {
   render() {
     return (
       <div className="bg-light wd-wrapper">
-        <HRSidebar />
+        <AdminSidear />
           <div className="wrapper-wx">
             <div className="container-fluid" >
                 <div className="container-fluid" >
                     <div className="row">
                       <div className="col-md-2 mt-2">
                         <div className="card border-0 shadow-sm rounded mt-3 bg-white pb-3 mb-5">
-                          osanda
+                          <h1>Admin eka yako</h1>
                         </div>
                       </div>
                      
@@ -31,4 +31,4 @@ class HRDashboard extends Component {
 
 const cardstyle = "card border-0 shadow-sm rounded mt-3 bg-white py-3 d-flex flex-row"
 
-export default withRouter(HRDashboard);
+export default withRouter(adminDashboard);
