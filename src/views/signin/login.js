@@ -72,8 +72,6 @@ class login extends Component {
     };
 
      this.props.loginUser(userDate);
-
-    console.log(userDate);
     
   }
 

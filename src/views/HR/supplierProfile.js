@@ -3,28 +3,29 @@ import { withRouter, Link } from 'react-router-dom';
 import HRSidebar from '../HR/HRSidebar';
 import Config from '../../controllers/Config';
 import { connect } from 'react-redux';
-import { getAllCustomers } from '../../controllers/customer';
+import { getAllSuppliers, deleteSupplier } from '../../controllers/supplier';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
+import moment from "moment";
 
-class customerProfile extends Component {
+class supplierProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
-      AllCustomers: [],
+      AllSuppliers: [],
     };
   }
 
   componentDidMount() {
-    this.loadCustomers();
+    this.loadSuppliers();
   }
 
-  loadCustomers = () => {
-    getAllCustomers()
+  loadSuppliers = () => {
+    getAllSuppliers()
       .then(result => {
         // console.log(result);
-        this.setState({ AllCustomers: result });
+        this.setState({ AllSuppliers: result });
       })
       .catch(err => {
         // console.log(err);
@@ -32,7 +33,7 @@ class customerProfile extends Component {
   };
 
   render() {
-    const { AllCustomers } = this.state;
+    const { AllSuppliers } = this.state;
     return (
       <div className='bg-light wd-wrapper'>
         <HRSidebar />
@@ -41,7 +42,7 @@ class customerProfile extends Component {
             <div className='row'>
               <div className='col-12'>
                 <h6 className='text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded'>
-                  Customer Profiles
+                  Supplier Profiles
                 </h6>
      
                 <h6 className='text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded'>
@@ -49,22 +50,23 @@ class customerProfile extends Component {
                     <table className='table table-stripped'>
                       <thead>
                         <tr style={{ color: '#1E90FF' }}>
-                          <th>CustomerID</th>
-                          <th>Customer Name</th>
+                          {/* <th>SupplierID</th> */}
+                          <th>Supplier Name</th>
                           <th>Address</th>
                           <th>Phone No</th>
+                          <th>Email</th>
+                          <th>Join Date</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {AllCustomers.map(item =>
-                          this.renderAllNewCustomers(item)
+                        {AllSuppliers.map(item =>
+                          this.renderAllSuppliers(item)
                         )}
                       </tbody>
                     </table>
                   </div>
                 </h6>
-    
 
               </div>
             </div>
@@ -74,13 +76,15 @@ class customerProfile extends Component {
     );
   }
 
-  renderAllNewCustomers = item => {
+  renderAllSuppliers = item => {
     return (
       <tr key={item._id}>
-        <td>{item.customerId}</td>
-        <td>{item.customerName}</td>
+        {/* <td>{item.customerId}</td> */}
+        <td>{item.name}</td>
         <td>{item.address}</td>
         <td>{item.phoneNo}</td>
+        <td>{item.email}</td>
+        <td>{moment(new Date(item.created_on)).format("YYYY MMM DD")}</td>
         {/* <td>{item.DeliveredDate}</td>
                 <td>{item.Amount}</td> */}
         <td>
@@ -89,13 +93,42 @@ class customerProfile extends Component {
               <FontAwesomeIcon icon={faEye} />
             </button>
           </Link>
+
+          <button
+            className="btn btn-danger btn-sm px-2 mr-2"
+            onClick={() => this.onClickDelete(item)}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
         </td>
       </tr>
     );
+  };
+
+  onClickDelete = (item) => {
+    Config.setDeleteConfirmAlert(
+      "",
+      "Are you sure you want to delete this Supplier ?",
+      () => this.clickDeleteSupplier(item._id),
+      () => {}
+    );
+  };
+
+  clickDeleteSupplier = (id) => {
+    console.log(id);
+    deleteSupplier(id)
+      .then((result) => {
+        this.loadSuppliers();
+        Config.setToast(" Product Deleted Successfully");
+      })
+      .catch((err) => {
+        console.log(err);
+        Config.setErrorToast(" Somthing Went Wrong!");
+      });
   };
 }
 const mapStateToProps = state => ({
   auth: state.auth || {},
 });
 
-export default connect(mapStateToProps)(withRouter(customerProfile));
+export default connect(mapStateToProps)(withRouter(supplierProfile));

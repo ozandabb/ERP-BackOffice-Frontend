@@ -6,7 +6,11 @@ import setAuthToken from "../src/utils/setAuthToken"
 import { setCurrentUser, logoutUser } from "../src/actions/authAction"
 import {store, persistor } from "../src/store/store"
 import RootRouter from "./RootRouter";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "../src/asserts/commoncss/alerts.css";
+
+toast.configure() 
 
 //check for token
 if(localStorage.jwtToken){

@@ -1,26 +1,41 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import HRSidebar from "../HR/HRSidebar";
+import { getAllVehicles, deleteVehicle } from '../../controllers/vehicle';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Config from '../../controllers/Config';
 import {
-  faEye
+  faEye, faTrash
 } from "@fortawesome/free-solid-svg-icons";
 
 class vehicleProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            OrderID: "",
-            CustomerName: "",
-            DueDate:"",
-            DeliveredDate: "",
-            Amount: "",
-            AllNewOrders: [1],
+            loading: true,
+            AllVehicles: [],
         };
       }
 
+      
+      componentDidMount() {
+        this.loadVehicles();
+      }
+    
+      loadVehicles = () => {
+        getAllVehicles()
+          .then(result => {
+            console.log(result);
+            this.setState({ AllVehicles: result });
+          })
+          .catch(err => {
+            // console.log(err);
+          });
+      };
+
+
     render() {
-        const { AllNewOrders } = this.state;
+        const { AllVehicles } = this.state;
       return (
         <div className="bg-light wd-wrapper">
         <HRSidebar />
@@ -46,8 +61,8 @@ class vehicleProfile extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {AllNewOrders.map((item) =>
-                                            this.renderAllNewOrders(item)
+                                        {AllVehicles.map((item) =>
+                                            this.renderAllVehicles(item)
                                         )}
                                         </tbody>
                                     </table>
@@ -62,24 +77,55 @@ class vehicleProfile extends Component {
       );
     }
 
-    renderAllNewOrders = (item) => {
+    renderAllVehicles = (item) => {
         return (
             <tr>
-                <td> {item.OrderID}</td>
-                <td>{item.CustomerName}</td>
-                <td>{item.DueDate}</td>
-                <td>{item.DeliveredDate}</td>
-                <td>{item.Amount}</td>
+                <td> {item.vehicleNumber}</td>
+                <td>{item.licenseDetails.licenseNo}</td>
+                <td>{item.vehicleType}</td>
+                <td>{item.weight}</td>
+                <td>{item.volume}</td>
                 <td>
                 <Link to="/hrstaff/vehicleProfile/viewVehicleProfile">
                     <button className="btn btn-success btn-sm px-2 mr-2">
                             <FontAwesomeIcon icon={faEye} />
                     </button>
                 </Link>
+
+                <button
+                    className="btn btn-danger btn-sm px-2 mr-2"
+                    onClick={() => this.onClickDelete(item)} >
+                    <FontAwesomeIcon icon={faTrash} />
+                </button>
                 </td>
             </tr>
         );
     }
+
+    onClickDelete = (item) => {
+        Config.setDeleteConfirmAlert(
+          "",
+          "Are you sure you want to delete this Vehicle ?",
+          () => this.clickDeleteVehicle(item._id),
+          () => {}
+        );
+      };
+    
+      clickDeleteVehicle = (id) => {
+        console.log(id);
+        deleteVehicle(id)
+          .then((result) => {
+            this.loadVehicles();
+            Config.setToast(" Vehicle Deleted Successfully");
+          })
+          .catch((err) => {
+            console.log(err);
+            Config.setErrorToast(" Somthing Went Wrong!");
+          });
+      };
+  
+
+
 }
 
 

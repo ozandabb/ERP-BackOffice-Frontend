@@ -31,6 +31,37 @@ class Config {
     });
   }
 
+  
+  setErrorToast(msg){
+    toast.error( msg, {
+      hideProgressBar: true,
+      closeOnClick: true,
+      draggable: true,
+    });
+  }
+
+
+  setDeleteConfirmAlert(title , msg , confirm , cancel ){
+    confirmAlert({
+      title: title,
+      message: msg,
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => confirm()
+        },
+        {
+          label: 'No',
+          onClick: () => cancel()
+        }
+      ]
+    });
+  }
+
+
+
+
+
 
 }
 

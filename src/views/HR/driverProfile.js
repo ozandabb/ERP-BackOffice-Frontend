@@ -1,26 +1,41 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import HRSidebar from "../HR/HRSidebar";
+import { getAllDrivers, deleteDriver } from '../../controllers/driver';
+import Config from '../../controllers/Config';
+import { connect } from 'react-redux';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faEye
+  faEye, faTrash
 } from "@fortawesome/free-solid-svg-icons";
 
 class driverProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            OrderID: "",
-            CustomerName: "",
-            DueDate:"",
-            DeliveredDate: "",
-            Amount: "",
-            AllNewOrders: [1],
+            loading: true,
+            AllDrivers: [],
         };
       }
 
+      componentDidMount() {
+        this.loadDrivers();
+      }
+    
+      loadDrivers = () => {
+        getAllDrivers()
+          .then(result => {
+            console.log(result);
+            this.setState({ AllDrivers: result });
+          })
+          .catch(err => {
+            // console.log(err);
+          });
+      };
+
+
     render() {
-        const { AllNewOrders } = this.state;
+        const { AllDrivers } = this.state;
       return (
         <div className="bg-light wd-wrapper">
         <HRSidebar />
@@ -38,21 +53,20 @@ class driverProfile extends Component {
                                     <thead>
                                         <tr style={{color: "#1E90FF"}}>
                                         <th>DriverId</th>
-                                        <th>Driver Name</th>
-                                        <th>Join Date</th>
-                                        <th>Delivered</th>
-                                        <th>Amount</th>
+                                        <th>Employee No</th>
+                                        <th>Address</th>
+                                        <th>Contact No</th>
+                                        <th>Salary</th>
                                         <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {AllNewOrders.map((item) =>
-                                            this.renderAllNewOrders(item)
+                                        {AllDrivers.map((item) =>
+                                            this.renderAllDrivers(item)
                                         )}
                                         </tbody>
                                     </table>
                                 </div>
-                           
                 </h6>
               </div>
                     </div>
@@ -62,26 +76,59 @@ class driverProfile extends Component {
       );
     }
 
-    renderAllNewOrders = (item) => {
+    renderAllDrivers = (item) => {
         return (
-            <tr>
-                <td> {item.OrderID}</td>
-                <td>{item.CustomerName}</td>
-                <td>{item.DueDate}</td>
-                <td>{item.DeliveredDate}</td>
-                <td>{item.Amount}</td>
+          <tr key={item._id}>
+                <td> {item.name}</td>
+                <td>{item.empNo}</td>
+                <td>{item.address}</td>
+                <td>{item.contactNo}</td>
+                <td>{item.salary}</td>
                 <td>
                 <Link to="/hrstaff/driverProfile/viewDriverProfile">
                     <button className="btn btn-success btn-sm px-2 mr-2">
                             <FontAwesomeIcon icon={faEye} />
                     </button>
                 </Link>
+
+                <button
+            className="btn btn-danger btn-sm px-2 mr-2"
+            onClick={() => this.onClickDelete(item)}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
                 </td>
             </tr>
         );
     }
+
+    onClickDelete = (item) => {
+      Config.setDeleteConfirmAlert(
+        "",
+        "Are you sure you want to delete this Driver ?",
+        () => this.clickDeleteDriver(item._id),
+        () => {}
+      );
+    };
+  
+    clickDeleteDriver = (id) => {
+      console.log(id);
+      deleteDriver(id)
+        .then((result) => {
+          this.loadDrivers();
+          Config.setToast(" Driver Deleted Successfully");
+        })
+        .catch((err) => {
+          console.log(err);
+          Config.setErrorToast(" Somthing Went Wrong!");
+        });
+    };
+
+
 }
 
+const mapStateToProps = state => ({
+  auth: state.auth || {},
+});
 
-
-export default withRouter(driverProfile);
+export default connect(mapStateToProps)(withRouter(driverProfile));

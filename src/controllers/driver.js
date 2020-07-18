@@ -1,13 +1,14 @@
 import axios from 'axios';
 import Config from './Config';
 
-//get All customers
-export const getAllCustomers = () => {
+//get All drivers
+export const getAllDrivers = () => {
   return new Promise((resolve, reject) => {
     return axios
-      .get(`${Config.host}${Config.port}/api/customer/`)
+      .get(`${Config.host}${Config.port}/api/driver/`)
       .then(result => {
         resolve(result.data);
+        console.log(result.data);
       })
       .catch(err => {
         reject(err);
@@ -15,18 +16,16 @@ export const getAllCustomers = () => {
   });
 };
 
-//Add a customer
-export const addCustomer = (data) => {
+//Delete Driver
+export const deleteDriver = (id) => {
   return new Promise((resolve, reject) => {
     return axios
-      .post(`${Config.host}${Config.port}/api/customer/`, data)
+      .delete(`${Config.host}${Config.port}/api/driver/${id}`)
       .then((result) => {
-        resolve(result.data );
-        console.log(result.data);
+        resolve({ code: 200, message: result.data.message });
       })
       .catch((err) => {
-        reject(err);
+        reject({ code: 0, error: err });
       });
   });
 };
-

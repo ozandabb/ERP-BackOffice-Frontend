@@ -125,6 +125,14 @@ class HRSidebar extends React.Component {
               </li>
             </Link>
 
+            <Link to="/hrstaff/supplierProfile">
+              <li className={`listitem ${  active == "products" && "active_category" }`} >
+                <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
+                  Supplier Profile
+                </h6>
+              </li>
+            </Link>
+
            
             <li onClick={this.onLogoutClick.bind(this)} className={`listitem ${  active == "products" && "active_category"}`}>
             <Link to="/">

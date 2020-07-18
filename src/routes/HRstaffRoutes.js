@@ -7,6 +7,7 @@ import employeeReg from "../views/HR/employeeReg"
 import driverProfile from "../views/HR/driverProfile"
 import vehicleProfile from "../views/HR/vehicleProfiles"
 import customerProfile from "../views/HR/customerProfile"
+import supplierProfile from "../views/HR/supplierProfile"
 import viewDriverProfile from "../views/HR/view.driverProfile"
 import ViewCustomerProfile from "../views/HR/view.customerProfile"
 import viewVehicleProfile from "../views/HR/view.vehicleProfile"
@@ -64,6 +65,12 @@ let HRstaffRoutes = [
        component: customerProfile,
        exact: true,
      },
+     {
+      path: "/hrstaff/supplierProfile",
+      name: "supplierProfile",
+      component: supplierProfile,
+      exact: true,
+    },
      {
        path: "/hrstaff/driverProfile/viewDriverProfile",
        name: "viewDriverProfile",
