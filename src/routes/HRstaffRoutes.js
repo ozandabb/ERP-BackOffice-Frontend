@@ -3,11 +3,13 @@ import HRDashboard from "../views/HR/HRDashboard"
 import customerReg from "../views/HR/customerReg"
 import customerReg2 from "../views/HR/customerReg2"
 import supplierReg from "../views/HR/supplierReg"
+import driverReg from '../views/HR/driverReg'
 import employeeReg from "../views/HR/employeeReg"
 import driverProfile from "../views/HR/driverProfile"
 import vehicleProfile from "../views/HR/vehicleProfiles"
 import customerProfile from "../views/HR/customerProfile"
 import supplierProfile from "../views/HR/supplierProfile"
+import employeeProfile from "../views/HR/employeeProfile"
 import viewDriverProfile from "../views/HR/view.driverProfile"
 import ViewCustomerProfile from "../views/HR/view.customerProfile"
 import viewVehicleProfile from "../views/HR/view.vehicleProfile"
@@ -48,6 +50,12 @@ let HRstaffRoutes = [
        exact: true,
      },
      {
+      path: "/hrstaff/driver_registration",
+      name: "driverReg",
+      component: driverReg,
+      exact: true,
+    },
+     {
        path: "/hrstaff/driverProfile",
        name: "driverProfile",
        component: driverProfile,
@@ -69,6 +77,12 @@ let HRstaffRoutes = [
       path: "/hrstaff/supplierProfile",
       name: "supplierProfile",
       component: supplierProfile,
+      exact: true,
+    },
+    {
+      path: "/hrstaff/employeeProfile",
+      name: "employeeProfile",
+      component: employeeProfile,
       exact: true,
     },
      {

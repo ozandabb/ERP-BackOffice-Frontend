@@ -3,9 +3,10 @@ import { withRouter, Link } from 'react-router-dom';
 import HRSidebar from '../HR/HRSidebar';
 import Config from '../../controllers/Config';
 import { connect } from 'react-redux';
-import { getAllCustomers } from '../../controllers/customer';
+import { getAllCustomers, deleteCustomer } from '../../controllers/customer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye,  faTrash, faEnvelope  } from '@fortawesome/free-solid-svg-icons';
+import { Modal } from 'react-bootstrap';
 
 class customerProfile extends Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class customerProfile extends Component {
     this.state = {
       loading: true,
       AllCustomers: [],
+      viewUser: '',
+      showUserModal: false,
     };
   }
 
@@ -31,8 +34,19 @@ class customerProfile extends Component {
       });
   };
 
+   // view user modal
+   async showViewUser(i) {
+    var singleUser = this.state.AllCustomers.filter(user => user._id == i);
+    await this.setState({
+        showUserModal: true,
+        viewUser: singleUser[0]
+    })
+    // console.log(this.state.viewUser);
+
+}
+
   render() {
-    const { AllCustomers } = this.state;
+    const { AllCustomers, viewUser } = this.state;
     return (
       <div className='bg-light wd-wrapper'>
         <HRSidebar />
@@ -70,6 +84,55 @@ class customerProfile extends Component {
             </div>
           </div>
         </div>
+
+        <Modal size="lg"  show={this.state.showUserModal}  centered  onHide={() => this.setState({ showUserModal: false })} >
+                    <Modal.Header closeButton>
+                        <Modal.Title>View Customer</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div className="row">
+                            <div className="col-md-4">
+
+                                {/* <div className="IS_UI_profilePic" >
+                                    <div className="profilePicture" >
+                                        <img src={viewUser.profilepic == undefined || viewUser.profilepic == null ? image : `${C_Config.host}${C_Config.port}/${viewUser.profilepic}`} alt="lucidex user" />
+
+                                    </div>
+                                </div> */}
+
+                            </div>
+                            <div className="col-md-8">
+                                <div className="row">
+                                    <div className="col-md-12"><h5 className="card-title"> < b>Details </b></h5></div>
+                                    <div className="col-md-12">
+                                        <p><b>Name  : </b> {viewUser.customerName} </p>
+                                    </div>
+
+                                    <div className="col-md-7"> <p><b>Email : </b>   {viewUser.email}</p></div>
+
+                                    <div className="col-md-12">
+                                        <p><b>Contact No : </b> {viewUser.phoneNo} </p>
+                                    </div>
+                                    <div className="col-md-12">
+                                        <p><b>Address  : </b> {viewUser.address} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-12">
+                                <center>
+                                    {/* <button className="btn btn-danger btn-sm px-2 mr-2 mt-1">
+                                        <FontAwesomeIcon icon={faBan} /> Block
+                                      </button> */}
+                                    <a className="btn btn-info btn-sm px-2 mr-2 mt-1" href={`mailto:${viewUser.email}`} >
+                                        <FontAwesomeIcon icon={faEnvelope} /> Send Email
+                               </a>
+                                </center>
+                            </div>
+                        </div>
+
+                    </Modal.Body>
+                </Modal>
+
       </div>
     );
   }
@@ -84,15 +147,42 @@ class customerProfile extends Component {
         {/* <td>{item.DeliveredDate}</td>
                 <td>{item.Amount}</td> */}
         <td>
-          <Link to='/hrstaff/customerProfile/ViewCustomerProfile'>
-            <button className='btn btn-success btn-sm px-2 mr-2'>
+          {/* <Link to='/hrstaff/customerProfile/ViewCustomerProfile'> */}
+            <button className='btn btn-success btn-sm px-2 mr-2' onClick={() => this.showViewUser(item._id)}>
               <FontAwesomeIcon icon={faEye} />
             </button>
-          </Link>
+          {/* </Link> */}
+          <button className="btn btn-danger btn-sm px-2 mr-2" onClick={() => this.onClickDelete(item)}>
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
         </td>
       </tr>
     );
   };
+
+  onClickDelete = (item) => {
+    Config.setDeleteConfirmAlert(
+      "",
+      "Are you sure you want to delete this Customer ?",
+      () => this.clickDeleteSupplier(item._id),
+      () => {}
+    );
+  };
+
+  clickDeleteSupplier = (id) => {
+    console.log(id);
+    deleteCustomer(id)
+      .then((result) => {
+        this.loadCustomers();
+        Config.setToast(" Customer Deleted Successfully");
+      })
+      .catch((err) => {
+        console.log(err);
+        Config.setErrorToast(" Somthing Went Wrong!");
+      });
+  };
+
+
 }
 const mapStateToProps = state => ({
   auth: state.auth || {},

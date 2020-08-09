@@ -93,6 +93,14 @@ class HRSidebar extends React.Component {
               </li>
             </Link>
 
+            <Link to="/hrstaff/driver_registration">
+              <li className={`listitem ${ active == "add_products" && "active_category" }`}>
+                <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
+                 Driver Registration
+                </h6>
+              </li>
+            </Link>
+
             <Link to="/hrstaff/employee_registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
@@ -121,6 +129,14 @@ class HRSidebar extends React.Component {
               <li className={`listitem ${  active == "products" && "active_category" }`} >
                 <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
                   Customer Profile
+                </h6>
+              </li>
+            </Link>
+
+            <Link to="/hrstaff/employeeProfile">
+              <li className={`listitem ${  active == "products" && "active_category" }`} >
+                <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
+                  Employee Profile
                 </h6>
               </li>
             </Link>

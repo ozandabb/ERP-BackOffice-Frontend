@@ -52,6 +52,9 @@ class login extends Component {
       else if(nextProps.auth.user.user.role == "Back office"){
         this.props.history.push('./backoffice');
       }
+      else if(nextProps.auth.user.user.role == "warehouse"){
+        this.props.history.push('./warehouse');
+      }
       else if(nextProps.auth.user.user.role == "Admin"){
         this.props.history.push('./admin');
       }

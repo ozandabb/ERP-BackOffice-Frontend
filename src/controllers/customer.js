@@ -22,10 +22,23 @@ export const addCustomer = (data) => {
       .post(`${Config.host}${Config.port}/api/customer/`, data)
       .then((result) => {
         resolve(result.data );
-        console.log(result.data);
       })
       .catch((err) => {
         reject(err);
+      });
+  });
+};
+
+//Delete a customer
+export const deleteCustomer = (id) => {
+  return new Promise((resolve, reject) => {
+    return axios
+      .delete(`${Config.host}${Config.port}/api/customer/${id}`)
+      .then((result) => {
+        resolve({ code: 200, message: result.data.message });
+      })
+      .catch((err) => {
+        reject({ code: 0, error: err });
       });
   });
 };

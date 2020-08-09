@@ -133,7 +133,7 @@ class HR_Staff extends Component {
         if (Users != null) {
           return Users.filter((p) => p.role == 'HR-Manager');
         }
-      };
+    };
     
 
     displayAllManagers = item => {

@@ -29,7 +29,7 @@ export const addSupplier = (data) => {
   });
 };
 
-//Delete a customer
+//Delete a Supplier
 export const deleteSupplier = (id) => {
   return new Promise((resolve, reject) => {
     return axios

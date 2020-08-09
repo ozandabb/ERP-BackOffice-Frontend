@@ -29,3 +29,17 @@ export const deleteDriver = (id) => {
       });
   });
 };
+
+//Add Driverr
+export const addDriverr = (data) => {
+  return new Promise((resolve, reject) => {
+    return axios
+      .post(`${Config.host}${Config.port}/api/logistics/driver/`, data)
+      .then((result) => {
+        resolve(result.data );
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};

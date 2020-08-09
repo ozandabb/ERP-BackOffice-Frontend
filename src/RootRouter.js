@@ -3,6 +3,7 @@ import { connect} from 'react-redux'
 import login from "../src/views/signin/login"
 import indexRoutes from "../src/routes/indexRoute"
 import AdminRoutes from "../src/routes/adminRoutes"
+import WareHouseRoutes from "../src/routes/WareHouseRoutes"
 import backOfficeRoutes from "../src/routes/backOfficeRoutes"
 import HRstaffRoutes from "../src/routes/HRstaffRoutes"
 
@@ -32,6 +33,10 @@ class App extends React.Component {
 
     if( checkSignedIn == true && role == "Admin" ){
       routes = [ ...AdminRoutes  ];
+    }
+    
+    if( checkSignedIn == true && role == "Warehouse" ){
+      routes = [ ...WareHouseRoutes  ];
     }
 
     return routes;
