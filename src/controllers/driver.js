@@ -5,10 +5,10 @@ import Config from './Config';
 export const getAllDrivers = () => {
   return new Promise((resolve, reject) => {
     return axios
-      .get(`${Config.host}${Config.port}/api/driver/`)
+      .get(`${Config.host}${Config.port}/api/logistics/driver/`)
       .then(result => {
         resolve(result.data);
-        console.log(result.data);
+        // console.log(result.data);
       })
       .catch(err => {
         reject(err);
@@ -20,7 +20,7 @@ export const getAllDrivers = () => {
 export const deleteDriver = (id) => {
   return new Promise((resolve, reject) => {
     return axios
-      .delete(`${Config.host}${Config.port}/api/driver/${id}`)
+      .delete(`${Config.host}${Config.port}/api/logistics/driver/${id}`)
       .then((result) => {
         resolve({ code: 200, message: result.data.message });
       })
