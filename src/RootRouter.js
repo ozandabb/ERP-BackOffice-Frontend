@@ -19,7 +19,6 @@ class App extends React.Component {
 
     if(checkSignedIn == null && role == null ){
       routes = [login ];
-      console.log("mekatath eno bn");
     }
 
     if(checkSignedIn == true && role == "Back office"){

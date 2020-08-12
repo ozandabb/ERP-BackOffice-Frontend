@@ -78,7 +78,7 @@ class BOSidebar extends React.Component {
             </div>
           </div>
           <ul className="sidebar">
-            <Link to="/">
+            <Link to="/backoffice">
               <li
                 className="listitem"
                 className={`listitem ${

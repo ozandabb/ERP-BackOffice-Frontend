@@ -3,23 +3,50 @@ import { withRouter, Link } from 'react-router-dom';
 import BOSidebar from '../backOffice/BOSidebar';
 import LineChart from 'react-linechart';
 
+import { getAllCustomers } from '../../controllers/customer';
+
+
 class BackOfficeDashboard extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      AllCustomers: [],
+    };
+  }
+
+  componentDidMount() {
+    this.loadCustomers();
+  }
+
+  loadCustomers = () => {
+    getAllCustomers()
+      .then(result => {
+        console.log(result);
+        this.setState({ AllCustomers: result });
+      })
+      .catch(err => {
+      });
+  };
+
   render() {
-    const data = [
-      {
-        color: 'steelblue',
-        points: [
-          { x: 1, y: 2 },
-          { x: 3, y: 5 },
-          { x: 5, y: 3 },
-          { x: 7, y: 3 },
-          { x: 8, y: 3 },
-          { x: 10, y: 8 },
-          { x: 13, y: 4 },
-          { x: 14, y: 5 },
-        ],
-      },
-    ];
+    // const data = [
+    //   {
+    //     color: 'steelblue',
+    //     points: [
+    //       { x: 1, y: 2 },
+    //       { x: 3, y: 5 },
+    //       { x: 5, y: 3 },
+    //       { x: 7, y: 3 },
+    //       { x: 8, y: 3 },
+    //       { x: 10, y: 8 },
+    //       { x: 13, y: 4 },
+    //       { x: 14, y: 5 },
+    //     ],
+    //   },
+    // ];
+    const { AllCustomers } = this.state;
+
     return (
       <div className='bg-light wd-wrapper'>
         <BOSidebar />
@@ -27,93 +54,97 @@ class BackOfficeDashboard extends Component {
           <div className='container-fluid'>
             <div className='container-fluid'>
               <div className='row'>
-                <div className='col'>
-                  <h6 className='text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded'>
-                    <div className='row'>
-                      <div className='col-4'>
-                        <img
-                          src='/images/admin.Users.png'
-                          className='rounded-circle sidebar-image my-auto'
-                        ></img>
-                      </div>
-                      <div className='col-8'>
-                        <h6 style={{ color: '#1E90FF' }}>Customers</h6>
-                        <h6>364</h6>
-                      </div>
-                    </div>
-                  </h6>
-                </div>
+                        <div class="col-sm">
+                          <Link to='/hrstaff/customerProfile' style={{textDecoration: 'none'}}>
+                            <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
+                                <div className="row">
+                                            <div className="col">
+                                                    <div className="card border-0 shadow-sm rounded mt-1 bg-white pb-2" style={{padding:"10px", color:"#929b94"}}> 
+                                                        <div className="row">
+                                                            <div className="col-4">
+                                                                    <center><img src="/images/customers.png" className="img-fluid my-auto" style={{width:"100px"}}/></center>
+                                                            </div>
+                                                            <div className="col-8">
+                                                                    <h5 style={{color: "green" }}>Customers </h5> 
+                                                                    <h6>{AllCustomers.length}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                </div>
+                            </h6>  
+                            </Link>      
+                          </div>
 
-                <div className='col'>
-                  <h6 className='text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded'>
-                    <div className='row'>
-                      <div className='col-4'>
-                        <img
-                          src='/images/admin.Users.png'
-                          className='rounded-circle sidebar-image my-auto'
-                        ></img>
-                      </div>
-                      <div className='col-8'>
-                        <h6 style={{ color: '#1E90FF' }}>Cash Collectors</h6>
-                        <h6>12</h6>
-                      </div>
-                    </div>
-                  </h6>
-                </div>
+                          <div class="col-sm">
+                          <Link to='/hrstaff/customerProfile' style={{textDecoration: 'none'}}>
+                            <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
+                                <div className="row">
+                                            <div className="col">
+                                                    <div className="card border-0 shadow-sm rounded mt-1 bg-white pb-2" style={{padding:"10px", color:"#929b94"}}> 
+                                                        <div className="row">
+                                                            <div className="col-4">
+                                                                    <center><img src="/images/driver.png" className="img-fluid my-auto" style={{width:"100px"}}/></center>
+                                                            </div>
+                                                            <div className="col-8">
+                                                                    <h5 style={{color: "green" }}>Orders </h5> 
+                                                                    <h6>ggg</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                </div>
+                            </h6>  
+                            </Link>      
+                          </div>
 
-                <div className='col'>
-                  <h6 className='text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded'>
-                    <div className='row'>
-                      <div className='col-4'>
-                        <img
-                          src='/images/admin.Users.png'
-                          className='rounded-circle sidebar-image my-auto'
-                        ></img>
-                      </div>
-                      <div className='col-8'>
-                        <h6 style={{ color: '#1E90FF' }}>Sales Reps</h6>
-                        <h6>24</h6>
-                      </div>
-                    </div>
-                  </h6>
-                </div>
 
-                <div className='col'>
-                  <h6 className='text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded'>
-                    <div className='row'>
-                      <div className='col-4'>
-                        <img
-                          src='/images/admin.Users.png'
-                          className='rounded-circle sidebar-image my-auto'
-                        ></img>
-                      </div>
-                      <div className='col-8'>
-                        <h6 style={{ color: '#1E90FF' }}>Employees</h6>
-                        <h6>35</h6>
-                      </div>
-                    </div>
-                  </h6>
-                </div>
+                          <div class="col-sm">
+                          <Link to='/hrstaff/customerProfile' style={{textDecoration: 'none'}}>
+                            <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
+                                <div className="row">
+                                            <div className="col">
+                                                    <div className="card border-0 shadow-sm rounded mt-1 bg-white pb-2" style={{padding:"10px", color:"#929b94"}}> 
+                                                        <div className="row">
+                                                            <div className="col-4">
+                                                                    <center><img src="/images/customers.png" className="img-fluid my-auto" style={{width:"100px"}}/></center>
+                                                            </div>
+                                                            <div className="col-8">
+                                                                    <h5 style={{color: "green" }}>Customers </h5> 
+                                                                    <h6>gggg</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                </div>
+                            </h6>  
+                            </Link>      
+                          </div>
 
-                <div className='col'>
-                  <h6 className='text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded'>
-                    <div className='row'>
-                      <div className='col-4'>
-                        <img
-                          src='/images/admin.Users.png'
-                          className='rounded-circle sidebar-image my-auto'
-                        ></img>
-                      </div>
-                      <div className='col-8'>
-                        <h6 style={{ color: '#1E90FF' }}>Drivers</h6>
-                        <h6>5</h6>
-                      </div>
-                    </div>
-                  </h6>
-                </div>
+                          <div class="col-sm">
+                          <Link to='/hrstaff/customerProfile' style={{textDecoration: 'none'}}>
+                            <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
+                                <div className="row">
+                                            <div className="col">
+                                                    <div className="card border-0 shadow-sm rounded mt-1 bg-white pb-2" style={{padding:"10px", color:"#929b94"}}> 
+                                                        <div className="row">
+                                                            <div className="col-4">
+                                                                    <center><img src="/images/customers.png" className="img-fluid my-auto" style={{width:"100px"}}/></center>
+                                                            </div>
+                                                            <div className="col-8">
+                                                                    <h5 style={{color: "green" }}>Customers </h5> 
+                                                                    <h6>gggg</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                </div>
+                            </h6>  
+                            </Link>      
+                          </div>
               </div>
 
-              <div className='row'>
+              {/* <div className='row'>
                 <div className='col-4'>
                   <div className='row'>
                     <div className='col'>
@@ -213,7 +244,7 @@ class BackOfficeDashboard extends Component {
                     <br></br>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

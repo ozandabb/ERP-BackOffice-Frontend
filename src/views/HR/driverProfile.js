@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEye, faTrash, faEnvelope, faCaretDown
 } from "@fortawesome/free-solid-svg-icons";
+import PDFViewer from 'pdf-viewer-reactjs'
 
 
 
@@ -38,7 +39,7 @@ class driverProfile extends Component {
       loadDrivers = () => {
         getAllDrivers()
           .then(result => {
-            console.log(result);
+            // console.log(result);
             this.setState({ AllDrivers: result });
           })
           .catch(err => {
@@ -48,25 +49,31 @@ class driverProfile extends Component {
 
 
         // view user modal
-  async showViewUser(i) {
-    var singleUser = this.state.AllDrivers.filter(user => user._id == i);
+  async showViewUser() {
     await this.setState({
         showUserModal: true,
-        viewUser: singleUser[0]
     })
-    // console.log(this.state.viewUser);
-
 }
 
 
     render() {
         const { AllDrivers, viewUser } = this.state;
 
-        let sumSalary;
+        let sumSalary = [0];
+        let totalSal = 0;
 
-        for(let i=0; i < AllDrivers.size; i++){
-          sumSalary = sumSalary + viewUser.salary;
+        AllDrivers.forEach((item) => {
+          for(var j = 0; j < AllDrivers.length; j++){
+            sumSalary[j] = AllDrivers[j].salary;       
+          }
+        });
+
+        for(var i=0; i < AllDrivers.length; i++){
+          totalSal = totalSal + sumSalary[i];
         }
+
+      
+
 
       return (
         <div className="bg-light wd-wrapper">
@@ -118,12 +125,13 @@ class driverProfile extends Component {
                                                 <div className="card border-0 shadow-sm rounded mt-1 bg-white pb-2" style={{padding:"10px", color:"#929b94"}}> 
                                                     <div className="row">
                                                         <div className="col-4">
-                                                                <center><img src="/images/person.png" className="img-fluid my-auto" style={{width:"90px"}}/></center>
+                                                                <center><img src="/images/money.png" className="img-fluid my-auto" style={{width:"90px"}}/></center>
                                                         </div>
                                                         <div className="col-8">
                                                                 Total Amount of Salary
                                                                 <h6 style={{color: "green" }}>All Drivers</h6> 
-                                                                <h3>{sumSalary}</h3>
+                                                                <h3>{Config.numberWithCommas(totalSal)} LKR</h3>
+                                                                
                                                         </div>
                                                     </div>
                                                 </div>
@@ -141,54 +149,11 @@ class driverProfile extends Component {
                         <Modal.Title>View Driver</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className="row">
-                            
-                            <div className="col-md-4">
-                                <div className="row">
-                                    <div className="col-md-12"><h5 className="card-title"> < b>Driver Details </b></h5></div>
-                                    <div className="col-md-12">
-                                        <p><b>Name  : </b> {viewUser.name} </p>
-                                    </div>
-
-                                    <div className="col-md-7"> <p><b>Employee No : </b>   {viewUser.empNo}</p></div>
-
-                                    <div className="col-md-12">
-                                        <p><b>Salary  : </b> {viewUser.salary} </p>
-                                    </div>
-                                    <div className="col-md-12">
-                                        <p><b>Address  : </b> {viewUser.address} </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-
-                            <div className="row">
-                                    <div className="col-md-12"><h5 className="card-title"> < b>Driver License Details </b></h5></div>
-                                    <div className="col-md-12">
-                                        <p><b>License No  : </b> {viewUser.name} </p>
-                                    </div>
-                                    <div className="col-md-7"> <p><b>License Expire Date : </b>   {viewUser.empNo}</p></div>
-
-                                </div>
-
-                            </div>
-                            <div className="col-md-4">
-
-                               gwrgwr
-
-                            </div>
-                            <div className="col-md-12">
-                                <center>
-                                    {/* <button className="btn btn-danger btn-sm px-2 mr-2 mt-1">
-                                        <FontAwesomeIcon icon={faBan} /> Block
-                                      </button> */}
-                                    <a className="btn btn-info btn-sm px-2 mr-2 mt-1" href={`mailto:${viewUser.email}`} >
-                                        <FontAwesomeIcon icon={faEnvelope} /> Send Email
-                               </a>
-                                </center>
-                            </div>
-                        </div>
-
+                    <PDFViewer
+                          document={{
+                              url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
+                          }}
+                      />
                     </Modal.Body>
                 </Modal>
 
@@ -200,41 +165,6 @@ class driverProfile extends Component {
      
         return (
 
-        //   <tr key={item._id}>
-
-        // <Accordion>
-        //     <AccordionItem>
-              
-        //         <AccordionItemHeading>
-                  
-        //             <AccordionItemButton>
-        //             <td>{item.empNo}</td>
-                   
-        //         <td> {item.name}</td>
-        //          <td> {item.address}</td>
-        //         {/* <td>{item.contactNo}</td>
-        //         <td>{item.salary}</td> */}
-        //         <td>
-        //         <button className="btn  btn-sm px-2 mr-2">
-        //                     <FontAwesomeIcon icon={faCaretDown} />
-        //             </button>
-        //             </td>
-        //             </AccordionItemButton>
-        //         </AccordionItemHeading>
-        //         <AccordionItemPanel>
-        //         <div className="card border-0 shadow-sm rounded mt-1 bg-white pb-1 mb-1">
-        //             <div className="col-md-6 mt-2">
-        //                 <div className="col-md-7"> <p><b>License Expire Date : </b>   {viewUser.empNo}</p></div>
-        //             </div>
-        //             <div className="col-md-6 mt-2">
-        //             </div>
-        //         </div>
-        //         </AccordionItemPanel>
-        //     </AccordionItem>
-        //     </Accordion>
-
-
-
         <ul key={item._id} class="list-group">
           <li class="list-group-item">
 
@@ -245,6 +175,13 @@ class driverProfile extends Component {
                   <AccordionItemHeading>
                     <AccordionItemButton>
                       <tr>
+                        <td>
+                          <button
+                            className="btn btn-danger btn-sm px-2 mr-2"
+                            onClick={() => this.onClickDelete(item)}
+                          >
+                            <FontAwesomeIcon icon={faTrash} />
+                          </button></td>
                          <td>{item.empNo}</td> 
                          <td> {item.name}</td>
                          <td> {item.address}</td>
@@ -262,7 +199,9 @@ class driverProfile extends Component {
 
                       <div class="col-sm">
                         <p style={{ color: '#1E90FF' }}>Basic Details</p>
-                        <p><text style={{color:'#666362'}}>NIC -</text> {item.contactNo}</p>
+                        <p>
+                          <text style={{color:'#666362'}}>NIC -</text> {item.contactNo}
+                        </p>
                         <p><text style={{color:'#666362'}}>Contact No -</text> {item.contactNo}</p>
                         <p><text style={{color:'#666362'}}>Salary - </text>{item.salary}</p>
                       </div>
@@ -279,6 +218,17 @@ class driverProfile extends Component {
                         <p><text style={{color:'#666362'}}>Branch - </text>{item.bankDetalis.branch}</p>
                       </div>
 
+                    </div>
+                    <div class="row">
+                      <div className="col-6 col-md-4">
+                          <p style={{ color: '#1E90FF' }}>License Details </p>
+                          <p><text style={{color:'#666362'}}>License No -</text> {item.licenseDetails.licenseNo}</p>
+                          <p><text style={{color:'#666362'}}>Expire Date -</text> {moment(new Date(item.licenseDetails.licenseExpireDate)).format("YYYY MMM DD")}</p>
+                      </div>
+                      <div className="col-md-8">
+                         <p style={{ color: '#1E90FF' }}>Attachments </p>
+                        <img src="/images/files/pdff.pdf" onClick={() => this.showViewUser()} className="img-fluid my-auto" style={{width:"50px"}}/>
+                      </div>
                     </div>
                 </div>
                 </AccordionItemPanel>

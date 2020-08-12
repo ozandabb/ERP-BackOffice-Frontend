@@ -87,7 +87,8 @@ class login extends Component {
       <div className='wrapper'>
         <div className='container'>
           <div className='row'>
-            <div className='col-lg-6 offset-lg-3' style={{ marginTop: '80px' }}>
+            
+            <div className='col-lg-6 offset-lg-3 card shadow-sm rounded py-5 bg-white shadow-sm px-5' style={{ marginTop: '140px' }}>
               <h4 className='font-weigh-bold mt-3 mb-4 text-dark'>
                 <b>Sign In Portal</b>
               </h4>
