@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import HRSidebar from "../HR/HRSidebar";
+import { Line as LineChart, Bar, Doughnut } from 'react-chartjs-2';
 
 import { getAllSuppliers } from '../../controllers/supplier';
 import { getAllDrivers } from '../../controllers/driver';
@@ -167,9 +168,31 @@ class HRDashboard extends Component {
                                 </div>
                             </h6>        
                           </div> */}
+ 
+                    </div>
+                    <div className="row">
+                       {/* <div className="col-md-6 mt-3">
+                                            <div className="campaign ct-charts px-3">
+                                                <h6 className="mt-2 mb-3">User Registration in past years</h6>
+                                                <Bar data={{
+                                                    labels: Yyears,
+                                                    datasets: [
+                                                        {
+                                                            label: "Users",
+                                                            backgroundColor: 'rgba(220, 231, 117,0.5)',
+                                                            borderColor: 'rgba(220, 231, 117,1.0)',
+                                                            borderWidth: 1,
+                                                            hoverBackgroundColor: 'rgba(220, 231, 117,0.4)',
+                                                            hoverBorderColor: 'rgba(220, 231, 117,1)',
+                                                            data: Yuser
+                                                        }
+                                                    ]
+                                                }}
+                                                    options={options1}
+                                                    width="600" height="220" />
+                                            </div>
 
-
-                          
+                                        </div> */}
                     </div>
 
                

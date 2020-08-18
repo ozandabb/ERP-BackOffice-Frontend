@@ -5,153 +5,152 @@ import { FilePond } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 // import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import HRSidebar from "../HR/HRSidebar";
+import QRCode from "qrcode.react";
+import ReactToPrint from 'react-to-print';
 
-class customerReg2 extends Component {
-
-    state = {
-        selectedOption: null,
-      };
-
-      handleChange = selectedOption => {
-        this.setState({ selectedOption });
-        console.log(`Option selected:`, selectedOption);
-      };
-    
-  render() {
-
-    const { selectedOption } = this.state;
-
-    const ProvinceOptions = [
-        { value: 'Central Province ', label: 'Central Province ' },
-        { value: 'Eastern Province ', label: 'Eastern Province ' },
-        { value: 'Northern Province', label: 'Northern Province' },
-        { value: 'Southern Province', label: 'Southern Province' },
-        { value: 'Western Province ', label: 'Western Province ' },
-        { value: 'North Western Province', label: 'North Western Province' },
-        { value: 'North Central Province', label: 'North Central Province' },
-        { value: 'Uva Province', label: 'Uva Province' },
-        { value: 'Sabaragamuwa Province', label: 'Sabaragamuwa Province' },
-      ];
-
-      const groupedOptions = [
-        {
-          label: 'province',
-          options: ProvinceOptions,
-        }
-    ]
-    return (
-        <div className="bg-light wd-wrapper">
-        <HRSidebar />
-            <div className="wrapper-wx">
-                <div className="container-fluid" >
-                        <div class="row">
-                            <div className="col-12">
-                                <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
-                                    Customer Registration
-                                </h6>
-                            </div>
-                            <div className="col-12">
-                                <div className="card border-0 shadow-sm rounded mt-3 bg-white pb-3 mb-5">
-                                    
-                                    <form className="py-1  px-3" method="POST">
-                                        <div className="row">
-                                        
-                                             {/*---------shop Name--------------  */}
-                                             <div className="col-md-7 mt-2">
-                                                        <h6 className="form-label py-1">Shop Name</h6>
-                                                        <input
-                                                            type="text"
-                                                            name="name"
-                                                            style={{fontWeight: "bold"}}
-                                                            // value={name}
-                                                            // onChange={(e) => this.formValueChange(e)}
-                                                            placeholder="Enter Shop Name"
-                                                            className="form-control" ></input>
-                                                        {/* {errors.name && errors.name.length > 0 &&
-                                                            <h4 className="small text-danger mt-2 font-weight-bold mb-0">{errors.name}</h4>} */}
-                                                    </div>
-
-                                                    {/*---------Reg no--------------  */}
-                                                    <div className="col-md-5 mt-2">
-                                                        <h6 className="form-label py-1">Contact No</h6>
-                                                        <input
-                                                            type="text"
-                                                            style={{fontWeight: "bold"}}
-                                                            name="price"
-                                                            placeholder="Enter Register Number"
-                                                            className="form-control" ></input>
-                                                    </div>
-
-                                                    {/*---------Street Line 1--------------  */}
-                                            <div className="col-md-6 mt-2">
-                                                <h6 className="form-label py-1">Street Address Line 1</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    placeholder="Enter Street Address Line 1"
-                                                    className="form-control" ></input>
-                                            </div>
-
-                                            {/*---------street line 2--------------  */}
-                                            <div className="col-md-6 mt-2">
-                                                <h6 className="form-label py-1">Street Address Line 2</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    placeholder="Enter Street Address Line 2"
-                                                    className="form-control" ></input>
-                                            </div>
-
-                                            {/*--------District-------------  */}
-                                            <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">District</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    placeholder="Enter District Brand"
-                                                    className="form-control" ></input>
-                                            </div>
-
-                                            {/*---------Province --------------  */}
-                                            <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">State / Province</h6>
-                                                <Select
-                                                    options={groupedOptions}
-                                                    placeholder="Select a State / Province"
-                                                    styles={false}
-                                                />
-                                            </div>
-
-                                            {/*---------Zip/Postal code --------------  */}
-                                            <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Zip/Postal code</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    placeholder="Enter Zip/Postal code "
-                                                    className="form-control" ></input>
-                                            </div> 
-
-
-
-                                        </div>
-                                    </form>
+class ComponentToPrint extends React.Component {
+    render() {
+      return (
+            <div className="col-md-12 mt-3">
+                <QRCode value='https://stackoverflow.com/questions/50694881/how-to-download-file-in-react-js' style={{width:'350px' , height:'350px'}}  />,
+            </div>
+      );
+    }
+  }
+   
+  class customerReg2 extends React.Component {
+    render() {
+      return (
+        <div className='bg-light wd-wrapper'>
+         <HRSidebar />
+         <div className='wrapper-wx'>
+           <div className='container-fluid'>
+                <div className='row'>
+                    <div className='col-12'>
+                        <h6 className='text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded'>
+                        Customer Tcode | QRcode
+                        </h6>
                             
+                    </div>
+                    <div className="col-12">
+                                <div className="card border-0 shadow-sm rounded mt-3 bg-white py-1  px-3 pb-3 mb-5">
+                                    <div className="row">
+                                            <div class="col-sm-4">
+                                                <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
+                                                    <div className="row">
+                                                        {/* QR code ------------------------ */}
+                                                            <div>
+                                                            <ComponentToPrint ref={el => (this.componentRef = el)}/>
+                                                            </div>
+                                                            <div className="col-md-6 mt-2">
+                                                                <ReactToPrint
+                                                                    trigger={() => {
+                                                                    return  <button className="px-4 btn btn-success form-control  btn-sm bold-normal" type="submit">
+                                                                    Print
+                                                                    </button>;
+                                                                    }}
+                                                                    content={() => this.componentRef}
+                                                                />
+                                                                   
+                                                            </div>
+                                                            <div className="col-md-6 mt-2">
+                                                                    <button className="px-4 btn btn-success form-control  btn-sm bold-normal" type="submit">
+                                                                    Donwload
+                                                                    </button>
+                                                            </div>
+                                                    </div>
+                                                </h6>
+                                            </div>
+                                            <div class="col-sm-8">
+
+                                                <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
+                                                    <h6>Send Confirmation Message to Customer</h6>
+                                                    <div className="col-12 py-3">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" placeholder="Customer Email will display here" />
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send Confirmation</button>
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                                </h6>
+
+                                            </div>
+                                    </div>
                                 </div>
                             </div>
-
-                            
-                        </div>              
                 </div>
-            </div>
-        </div>
-    );
+           </div>
+         </div>
+
+        
+
+         </div>
+      );
+    }
   }
-}
+
+// class customerReg2 extends Component {
+//   render() {
+//     return (
+//         <div className="bg-light wd-wrapper">
+//         <HRSidebar />
+//             <div className="wrapper-wx">
+//                 <div className="container-fluid" >
+//                         <div class="row">
+//                             <div className="col-12">
+//                                 <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
+//                                     Customer Tcode | QRcode
+//                                 </h6>
+//                             </div>
+                            // <div className="col-12">
+                            //     <div className="card border-0 shadow-sm rounded mt-3 bg-white py-1  px-3 pb-3 mb-5">
+                            //         <div className="row">
+                            //                 <div class="col-sm-4">
+                            //                     <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
+                            //                         <div className="row">
+                            //                             {/* QR code ------------------------ */}
+                            //                                 <div className="col-md-12 mt-3">
+                            //                                     <QRCode value='https://stackoverflow.com/questions/50694881/how-to-download-file-in-react-js' style={{width:'100%', height:'100%'}} />,
+                            //                                 </div>
+                            //                                 <div className="col-md-6 mt-2">
+                            //                                         <button className="px-4 btn btn-success form-control  btn-sm bold-normal" type="submit">
+                            //                                         Print
+                            //                                         </button>
+                            //                                 </div>
+                            //                                 <div className="col-md-6 mt-2">
+                            //                                         <button className="px-4 btn btn-success form-control  btn-sm bold-normal" type="submit">
+                            //                                         Donwload
+                            //                                         </button>
+                            //                                 </div>
+                            //                         </div>
+                            //                     </h6>
+                            //                 </div>
+                            //                 <div class="col-sm-8">
+
+                            //                     <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
+                            //                         <h6>Send Confirmation Message to Customer</h6>
+                            //                         <div className="col-12 py-3">
+                            //                                 <div class="input-group">
+                            //                                     <input type="text" class="form-control" placeholder="Customer Email will display here" />
+                            //                                         <div class="input-group-append">
+                            //                                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send Confirmation</button>
+                            //                                         </div>
+                            //                                 </div>
+                            //                         </div>
+                            //                     </h6>
+
+                            //                 </div>
+                            //         </div>
+                            //     </div>
+                            // </div>
+                       // </div>              
+//                 </div>
+//             </div>
+//         </div>
+//     );
+//   }
+// }
 
 
 export default withRouter(customerReg2);

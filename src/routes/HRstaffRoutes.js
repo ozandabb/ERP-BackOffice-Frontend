@@ -1,18 +1,20 @@
 //HR routes start here
-import HRDashboard from "../views/HR/HRDashboard"
-import customerReg from "../views/HR/customerReg"
-import customerReg2 from "../views/HR/customerReg2"
-import supplierReg from "../views/HR/supplierReg"
-import driverReg from '../views/HR/driverReg'
-import employeeReg from "../views/HR/employeeReg"
-import driverProfile from "../views/HR/driverProfile"
-import vehicleProfile from "../views/HR/vehicleProfiles"
-import customerProfile from "../views/HR/customerProfile"
-import supplierProfile from "../views/HR/supplierProfile"
-import employeeProfile from "../views/HR/employeeProfile"
-import viewDriverProfile from "../views/HR/view.driverProfile"
-import ViewCustomerProfile from "../views/HR/view.customerProfile"
-import viewVehicleProfile from "../views/HR/view.vehicleProfile"
+import HRDashboard from "../views/HR/HRDashboard";
+import customerReg from "../views/HR/customerReg";
+import customerReg2 from "../views/HR/customerReg2";
+import SingleCustomerProfile from "../views/HR/SingleCustomerProfile";
+import supplierReg from "../views/HR/supplierReg";
+import driverReg from '../views/HR/driverReg';
+import employeeReg from "../views/HR/employeeReg";
+import driverProfile from "../views/HR/driverProfile";
+import vehicleProfile from "../views/HR/vehicleProfiles";
+import vehicleReg from "../views/HR/vehicleReg";
+import customerProfile from "../views/HR/customerProfile";
+import supplierProfile from "../views/HR/supplierProfile";
+import employeeProfile from "../views/HR/employeeProfile";
+import viewDriverProfile from "../views/HR/view.driverProfile";
+import ViewCustomerProfile from "../views/HR/view.customerProfile";
+import viewVehicleProfile from "../views/HR/view.vehicleProfile";
 //HR routes ENDS here
 
 
@@ -32,11 +34,17 @@ let HRstaffRoutes = [
        exact: true,
      },
      {
-       path: "/hrstaff/customer_registration/shopDetails",
+       path: "/hrstaff/customer_registration/QRcode",
        name: "customerReg2",
        component: customerReg2,
        exact: true,
      },
+     {
+      path: "/hrstaff/customer_registration/SingleCustomerProfile",
+      name: "customerReg2",
+      component: SingleCustomerProfile,
+      exact: true,
+    },
      {
        path: "/hrstaff/supplier_registration",
        name: "supplierReg",
@@ -61,6 +69,12 @@ let HRstaffRoutes = [
        component: driverProfile,
        exact: true,
      },
+     {
+      path: "/hrstaff/vehicle_Registration",
+      name: "vehicle REgistration",
+      component: vehicleReg,
+      exact: true,
+    },
      {
        path: "/hrstaff/vehicleProfile",
        name: "vehicleProfile",

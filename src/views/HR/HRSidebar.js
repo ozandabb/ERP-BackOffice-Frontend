@@ -109,6 +109,14 @@ class HRSidebar extends React.Component {
               </li>
             </Link>
 
+            <Link to="/hrstaff/vehicle_Registration">
+              <li className={`listitem ${ active == "add_products" && "active_category" }`}>
+                <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
+                 Vehicle Registration
+                </h6>
+              </li>
+            </Link>
+
             <Link to="/hrstaff/driverProfile">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >

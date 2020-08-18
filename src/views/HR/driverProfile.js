@@ -203,7 +203,7 @@ class driverProfile extends Component {
                           <text style={{color:'#666362'}}>NIC -</text> {item.contactNo}
                         </p>
                         <p><text style={{color:'#666362'}}>Contact No -</text> {item.contactNo}</p>
-                        <p><text style={{color:'#666362'}}>Salary - </text>{item.salary}</p>
+                        <p><text style={{color:'#666362'}}>Salary - </text>{Config.numberWithCommas(item.salary)} LKR</p>
                       </div>
                       <div class="col-sm">
                         <p style={{ color: '#1E90FF' }}>Insurance Details </p>

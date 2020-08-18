@@ -7,6 +7,7 @@ import { getAllCustomers, deleteCustomer } from '../../controllers/customer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye,  faTrash, faEnvelope  } from '@fortawesome/free-solid-svg-icons';
 import { Modal } from 'react-bootstrap';
+import Item from 'antd/lib/list/Item';
 
 class customerProfile extends Component {
   constructor(props) {
@@ -147,11 +148,13 @@ class customerProfile extends Component {
         {/* <td>{item.DeliveredDate}</td>
                 <td>{item.Amount}</td> */}
         <td>
-          {/* <Link to='/hrstaff/customerProfile/ViewCustomerProfile'> */}
-            <button className='btn btn-success btn-sm px-2 mr-2' onClick={() => this.showViewUser(item._id)}>
+          <Link to='/hrstaff/customer_registration/SingleCustomerProfile'>
+            <button className='btn btn-success btn-sm px-2 mr-2' 
+            // onClick={() => this.showViewUser(item._id)}
+            >
               <FontAwesomeIcon icon={faEye} />
             </button>
-          {/* </Link> */}
+          </Link>
           <button className="btn btn-danger btn-sm px-2 mr-2" onClick={() => this.onClickDelete(item)}>
             <FontAwesomeIcon icon={faTrash} />
           </button>

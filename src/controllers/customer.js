@@ -43,3 +43,16 @@ export const deleteCustomer = (id) => {
   });
 };
 
+
+export const getCustomerById = (id) => {
+  return new Promise((resolve, reject) => {
+    return axios
+      .get(`${Config.host}${Config.port}/api/customer/${id}`)
+      .then((result) => {
+          resolve(result.data.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};

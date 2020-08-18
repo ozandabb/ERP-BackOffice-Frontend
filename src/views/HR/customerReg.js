@@ -115,189 +115,242 @@ class customerReg extends Component {
                         <div class="row">
                             <div className="col-12">
                                 <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
-                                    Customer Registration
+                                Customer Registration
                                 </h6>
                             </div>
+                            
                             <div className="col-12">
+            
                                 <div className="card border-0 shadow-sm rounded mt-3 bg-white pb-3 mb-5">
                                     
                                     <form className="py-1  px-3" method="POST" onSubmit={(e) => this.onSubmit(e)}>
                                         <div className="row">
+                                        <div class="col-sm-8">
+                                        <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
+                                            <b>Basic Details of the Customer</b>
 
-                                            {/* profile image------------------------ */}
-                                            {/* <div className="col-md-12 mt-3">
-                                                <h6 className="form-label py-1">Add a Profile Image</h6>
+                                        <div className="row">
+
+                                             {/*---------customer full Name--------------  */}
+                                             <div className="col-12">
+                                                <h6 className="form-label py-1">Customer Full Name</h6>
+                                                <input
+                                                    type="text"
+                                                    name="Customer name"
+                                                    placeholder="Enter Customer's Full Name" 
+                                                    // value={this.state.name}
+                                                    // onChange={(e) => this.onChangeName(e)}
+                                                    className="form-control" ></input>
+                                            </div>
+
+                                            {/*---------NIC no--------------  */}
+                                            <div className="col-md-6 mt-2">
+                                                <h6 className="form-label py-1">Customer ID </h6>
+                                                <input
+                                                    type="text" 
+                                                    // value={this.state.empNo}
+                                                    // onChange={(e) => this.onChangeEmpNo(e)}
+                                                    name="Customer ID"
+                                                    className="form-control" ></input>
+                                            </div>
+
+                                             {/*---------NIC --------------  */}
+                                             <div className="col-md-6 mt-2">
+                                                <h6 className="form-label py-1">NIC</h6>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Enter NIC Number" 
+                                                    name="NIC"
+                                                    className="form-control"
+                                                    // value={this.state.email}
+                                                    // onChange={(e) => this.onChangeEmail(e)} 
+                                                    ></input>
+                                            </div>
+
+                                            {/*---------Contact no --------------  */}
+                                            <div className="col-md-6 mt-2">
+                                                <h6 className="form-label py-1">Contact Number</h6>
+                                                <input
+                                                    type="tel"
+                                                    placeholder="Enter Contact Number" 
+                                                    name="contact number"
+                                                    className="form-control"
+                                                    // value={this.state.contactNo}
+                                                    // onChange={(e) => this.onChangeContact(e)} 
+                                                    ></input>
+                                            </div>
+
+                                             {/*---------Salary --------------  */}
+                                             <div className="col-md-6 mt-2">
+                                                <h6 className="form-label py-1">Email</h6>
+                                                <input
+                                                    type="email"
+                                                    placeholder="Enter Email Address" 
+                                                    name="email"
+                                                    className="form-control"
+                                                    // value={this.state.salary}
+                                                    // onChange={(e) => this.onChangesalary(e)}
+                                                     ></input>
+                                            </div>
+
+                                           
+
+                                            {/*---------Address--------------  */}
+                                            <div className="col-12">
+                                                <h6 className="form-label py-1">Address</h6>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Enter Valid Address" 
+                                                    name="brand"
+                                                    className="form-control"
+                                                    // value={this.state.address}
+                                                    // onChange={(e) => this.onChangeAddress(e)} 
+                                                    ></input>
+                                            </div>
+
+                                            
+                                            </div>
+                                            </h6>
+
+
+                                            <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
+                                     <b>Shop Details of the Customer</b>
+
+                                        <div className="row">
+                                            {/*---------Bank name --------------  */}
+                                            <div className="col-md-6 mt-2">
+                                                <h6 className="form-label py-1">Shop Name</h6>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Enter Shop Name" 
+                                                    name="shop name"
+                                                    className="form-control"
+                                                    // value={this.state.bankName}
+                                                    // onChange={(e) => this.onChangebankName(e)} 
+                                                    ></input>
+                                            </div>
+
+                                            {/*---------Branch Name  --------------  */}
+                                            <div className="col-md-6 mt-2">
+                                                <h6 className="form-label py-1">Contact No</h6>
+                                                <input
+                                                    type="tel"
+                                                    placeholder="Enter Contact No" 
+                                                    name="shop contact no"
+                                                    className="form-control"
+                                                    // value={this.state.branch}
+                                                    // onChange={(e) => this.onChangebranch(e)} 
+                                                    ></input>
+                                            </div>
+
+                                             {/*---------Account number--------------  */}
+                                             <div className="col-12">
+                                                <h6 className="form-label py-1">Shop Address</h6>
+                                                <input
+                                                    type="text"
+                                                    name="shop address"
+                                                    placeholder="Enter Shop Address" 
+                                                    // value={this.state.accountNumber}
+                                                    // onChange={(e) => this.onChangeaccountNumber(e)}
+                                                    className="form-control" ></input>
+                                            </div>
+                                            <div className="col-12 py-3">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" placeholder="Customer Tcode" />
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Generate Customer Tcode</button>
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+
+                                        </div>
+                                        </h6>
+
+                                        </div>
+
+                                    <div class="col-sm-4">
+                                    <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
+        
+                                        <div className="row">
+                                             
+                                              {/* Attachments ------------------------ */}
+                                              <div className="col-md-12 mt-3">
+                                                <h6 className="form-label py-1"><b>Add Attachment</b></h6>
                                                 <FilePond
                                                     ref={ref => (this.pond = ref)}
                                                     files={this.state.files}
-                                                    allowMultiple={false}
+                                                    allowMultiple={true}
                                                     onupdatefiles={fileItems => {
                                                         this.setState({
                                                             files: fileItems.map(fileItem => fileItem.file)
                                                         });
                                                     }}>
                                                 </FilePond>
-                                            </div> */}
-
-                                             {/*---------Customer ID--------------  */}
-                                             <div className="col-md-5 mt-2">
-                                                <h6 className="form-label py-1">Customer ID</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="price"
-                                                    placeholder="Enter Customer ID"
-                                                    onChange={(e) => this.OnChangeCustomerID(e)}
-                                                    value={this.state.customerId}
-                                                    className="form-control" ></input>
                                             </div>
-                                        
-                                             {/*---------customer full Name--------------  */}
-                                             <div className="col-md-7 mt-2">
-                                                <h6 className="form-label py-1">Customer Full Name</h6>
-                                                <input
-                                                    type="text"
-                                                    name="name"
-                                                    style={{fontWeight: "bold"}}
-                                                    onChange={(e) => this.OnChangeName(e)}
-                                                    value={this.state.customerName}
-                                                    placeholder="Enter Customer Full Name"
-                                                    className="form-control" ></input>
-                                                {/* {errors.name && errors.name.length > 0 &&
-                                                    <h4 className="small text-danger mt-2 font-weight-bold mb-0">{errors.name}</h4>} */}
-                                            </div>
+                                            </div></h6>
 
-                                            {/*---------NIC no--------------  */}
-                                            {/* <div className="col-md-5 mt-2">
-                                                <h6 className="form-label py-1">NIC No</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="price"
-                                                    placeholder="Enter NIC Number"
-                                                    className="form-control" ></input>
-                                            </div> */}
 
-                                            {/*---------Street Line 1--------------  */}
-                                            <div className="col-md-6 mt-2">
-                                                <h6 className="form-label py-1">Street Address Line 1</h6>
+                                   <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
+                                    <b>Add Geopoint Of Customers Shop</b>
+
+                                        <div className="row">
+                                               {/*---------Google map url -------------  */}
+                                            <div className="col-12">
+                                                <h6 className="form-label py-1">Google Map URL </h6>
                                                 <input
                                                     type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    onChange={(e) => this.OnChangeAddress(e)}
-                                                    value={this.state.address}
-                                                    placeholder="Enter Street Address Line 1"
+                                                    name="google map url"
+                                                    placeholder="Enter Google Map URL" 
+                                                    // value={this.state.insuranceCompany}
+                                                    // onChange={(e) => this.onChangeinsuranceCompany(e)}
                                                     className="form-control" ></input>
                                             </div>
 
-                                            {/*---------street line 2--------------  */}
-                                            {/* <div className="col-md-6 mt-2">
-                                                <h6 className="form-label py-1">Street Address Line 2</h6>
+                                               {/*---------Latitude No-------------  */}
+                                               <div className="col-12">
+                                                <h6 className="form-label py-1">Enter Latitude (Optional)</h6>
                                                 <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    placeholder="Enter Street Address Line 2"
-                                                    className="form-control" ></input>
-                                            </div> */}
-
-                                            {/*--------District-------------  */}
-                                            {/* <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">District</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    placeholder="Enter District Brand"
-                                                    className="form-control" ></input>
-                                            </div> */}
-
-                                            {/*---------Province --------------  */}
-                                            {/* <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">State / Province</h6>
-                                                <Select
-                                                    options={groupedOptions}
-                                                    placeholder="Select a State / Province"
-                                                    styles={false}
-                                                />
-                                            </div> */}
-
-                                            {/*---------Zip/Postal code --------------  */}
-                                            {/* <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Zip/Postal code</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    placeholder="Enter Zip/Postal code "
-                                                    className="form-control" ></input>
-                                            </div>  */}
-
-                                            {/*---------Contact no --------------  */}
-                                            <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Contact Number</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    onChange={(e) => this.OnChangeContact(e)}
-                                                    value={this.state.phoneNo}
-                                                    placeholder="Enter Land Number"
+                                                    type="lat"
+                                                    name="Latitude"
+                                                    placeholder="Latitude" 
+                                                    // value={this.state.insuranceRefNo}
+                                                    // onChange={(e) => this.onChangeinsuranceRefNo(e)}
                                                     className="form-control" ></input>
                                             </div>
 
-                                            {/*---------Credit Limit --------------  */}
-                                             <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Credit Limit</h6>
+                                            {/*---------longitude-------------  */}
+                                            <div className="col-12">
+                                                <h6 className="form-label py-1">Enter Longitude (Optional)</h6>
                                                 <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    onChange={(e) => this.OnChangeCreditLimit(e)}
-                                                    value={this.state.creditLimit}
-                                                    placeholder="Enter Credit Limit"
+                                                    type="lng"
+                                                    name="Longitude"
+                                                    placeholder="Longitude" 
+                                                    // value={this.state.insuranceExpireDate}
+                                                    // onChange={(e) => this.onChangeinsuranceExpireDate(e)}
                                                     className="form-control" ></input>
                                             </div>
 
-                                            {/*---------Credits --------------  */}
-                                            <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Credit</h6>
-                                                <input
-                                                    type="text"
-                                                    style={{fontWeight: "bold"}}
-                                                    name="brand"
-                                                    onChange={(e) => this.OnChangeCredit(e)}
-                                                    value={this.state.credit}
-                                                    placeholder="Enter Credit"
-                                                    className="form-control" ></input>
-                                            </div>
+                                            </div></h6>
 
-
-
-                                         
-
+                                            <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
 
                                             <div className="col-md-12 mt-2">
                                                 <div className="d-flex">
-                                                    {/* <Link to="/hrstaff/customer_registration/shopDetails"> */}
-                                                    <button className="px-4 btn btn-dark  btn-sm bold-normal" type="submit">
+                                                    <Link to="/hrstaff/customer_registration/QRcode">
+                                                    <button className="px-4 btn btn-dark form-control  btn-sm bold-normal" type="submit">
                                                        Next</button>
-                                                       {/* </Link> */}
+                                                        </Link>
                                                 </div>
                                             </div>
-
-                                                    
-
+                                            </h6>
 
                                         </div>
+                                        </div>
                                     </form>
-                            
                                 </div>
                             </div>
-
                             
-                        </div>              
+                            </div>      
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ import Config from '../../controllers/Config';
 import "filepond/dist/filepond.min.css";
 import HRSidebar from "../HR/HRSidebar";
 
-export default class driverReg extends Component {
+export default class vehicleReg extends Component {
 
     constructor(props) {
         super(props);
@@ -141,7 +141,7 @@ export default class driverReg extends Component {
                         <div class="row">
                             <div className="col-12">
                                 <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
-                                Driver Registration
+                                Vehicle Registration
                                 </h6>
                             </div>
                             
@@ -153,43 +153,56 @@ export default class driverReg extends Component {
                                         <div className="row">
                                         <div class="col-sm-8">
                                         <h6 className="text-dark bold-normal py-3 bg-white shadow-sm px-3 mt-3 rounded">
-                                            <b>Basic Details of the Driver</b>
+                                            <b>Basic Details of the Vehicle</b>
 
                                         <div className="row">
 
-                                             {/*---------customer full Name--------------  */}
-                                             <div className="col-12">
-                                                <h6 className="form-label py-1">Driver Full Name</h6>
+                                            {/*---------Vehicle no--------------  */}
+                                            <div className="col-md-6 mt-2">
+                                                <h6 className="form-label py-1">Vehicle No</h6>
                                                 <input
                                                     type="text"
-                                                    name="name"
-                                                    placeholder="Enter Driver's Full Name" 
-                                                    value={this.state.name}
-                                                    onChange={(e) => this.onChangeName(e)}
+                                                    placeholder="Enter Vehicle No" 
+                                                    // value={this.state.empNo}
+                                                    // onChange={(e) => this.onChangeEmpNo(e)}
+                                                    name="Vehicle No"
+                                                    className="form-control" ></input>
+                                            </div>
+
+                                            {/*--------- Weight--------------  */}
+                                            <div className="col-md-6 mt-2">
+                                                <h6 className="form-label py-1">Weight</h6>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Enter Weight" 
+                                                    // value={this.state.empNo}
+                                                    // onChange={(e) => this.onChangeEmpNo(e)}
+                                                    name="Weight"
                                                     className="form-control" ></input>
                                             </div>
 
                                             {/*---------NIC no--------------  */}
                                             <div className="col-md-6 mt-2">
-                                                <h6 className="form-label py-1">Driver ID</h6>
+                                                <h6 className="form-label py-1">Vehicle ID</h6>
                                                 <input
                                                     type="text"
-                                                    placeholder="Enter Driver ID" 
-                                                    value={this.state.empNo}
-                                                    onChange={(e) => this.onChangeEmpNo(e)}
-                                                    name="price"
+                                                    placeholder="Enter Vehicle ID" 
+                                                    // value={this.state.empNo}
+                                                    // onChange={(e) => this.onChangeEmpNo(e)}
+                                                    name="Vehicle id"
                                                     className="form-control" ></input>
                                             </div>
                                             {/*---------Contact no --------------  */}
                                             <div className="col-md-6 mt-2">
-                                                <h6 className="form-label py-1">Contact Number</h6>
+                                                <h6 className="form-label py-1">Vehicle volume</h6>
                                                 <input
                                                     type="tel"
-                                                    placeholder="Enter Contact Number" 
-                                                    name="brand"
+                                                    placeholder="Enter Vehicle volume" 
+                                                    name="Vehicle volume"
                                                     className="form-control"
-                                                    value={this.state.contactNo}
-                                                    onChange={(e) => this.onChangeContact(e)} ></input>
+                                                    // value={this.state.contactNo}
+                                                    // onChange={(e) => this.onChangeContact(e)} 
+                                                    ></input>
                                             </div>
 
                                              {/*---------Salary --------------  */}
