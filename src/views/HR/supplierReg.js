@@ -19,7 +19,6 @@ class supplierReg extends Component {
             email : '',
             selectedOption: null,
         };
-
     }
 
     componentDidMount() {
@@ -128,8 +127,8 @@ class supplierReg extends Component {
                                                     type="text"
                                                     name="Supplier name"
                                                     placeholder="Enter Supplier's Full Name" 
-                                                    // value={this.state.name}
-                                                    // onChange={(e) => this.onChangeName(e)}
+                                                    value={this.state.name}
+                                                    onChange={(e) => this.onChangeName(e)}
                                                     className="form-control" ></input>
                                             </div>
 
@@ -163,10 +162,10 @@ class supplierReg extends Component {
                                                 <input
                                                     type="tel"
                                                     placeholder="Enter Contact Number" 
-                                                    name="contact number"
+                                                    name="phoneNo"
                                                     className="form-control"
-                                                    // value={this.state.contactNo}
-                                                    // onChange={(e) => this.onChangeContact(e)} 
+                                                    value={this.state.phoneNo}
+                                                    onChange={(e) => this.onChangeContact(e)} 
                                                     ></input>
                                             </div>
 
@@ -178,8 +177,8 @@ class supplierReg extends Component {
                                                     placeholder="Enter Email Address" 
                                                     name="email"
                                                     className="form-control"
-                                                    // value={this.state.salary}
-                                                    // onChange={(e) => this.onChangesalary(e)}
+                                                    value={this.state.email}
+                                                    onChange={(e) => this.onChangeEmail(e)}
                                                      ></input>
                                             </div>
 
@@ -191,10 +190,10 @@ class supplierReg extends Component {
                                                 <input
                                                     type="text"
                                                     placeholder="Enter Valid Address" 
-                                                    name="brand"
+                                                    name="address"
                                                     className="form-control"
-                                                    // value={this.state.address}
-                                                    // onChange={(e) => this.onChangeAddress(e)} 
+                                                    value={this.state.address}
+                                                    onChange={(e) => this.onChangeAddress(e)} 
                                                     ></input>
                                             </div>
 
@@ -214,8 +213,9 @@ class supplierReg extends Component {
                                                     placeholder="Enter Bank Name" 
                                                     name="Supplier bank name"
                                                     className="form-control"
-                                                    value={this.state.bankName}
-                                                    onChange={(e) => this.onChangebankName(e)} ></input>
+                                                    // value={this.state.bankName}
+                                                    // onChange={(e) => this.onChangebankName(e)} 
+                                                    ></input>
                                             </div>
 
                                             {/*---------Branch Name  --------------  */}
@@ -226,8 +226,9 @@ class supplierReg extends Component {
                                                     placeholder="Enter Branch Name" 
                                                     name="Supplier branch name"
                                                     className="form-control"
-                                                    value={this.state.branch}
-                                                    onChange={(e) => this.onChangebranch(e)} ></input>
+                                                    // value={this.state.branch}
+                                                    // onChange={(e) => this.onChangebranch(e)}
+                                                     ></input>
                                             </div>
 
                                              {/*---------Account number--------------  */}
@@ -237,8 +238,8 @@ class supplierReg extends Component {
                                                     type="text"
                                                     name="Supplier account number"
                                                     placeholder="Enter Account Number " 
-                                                    value={this.state.accountNumber}
-                                                    onChange={(e) => this.onChangeaccountNumber(e)}
+                                                    // value={this.state.accountNumber}
+                                                    // onChange={(e) => this.onChangeaccountNumber(e)}
                                                     className="form-control" ></input>
                                             </div>
                                             </div>

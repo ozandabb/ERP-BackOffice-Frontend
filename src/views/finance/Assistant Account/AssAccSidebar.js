@@ -2,8 +2,8 @@
 import React from "react";
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../actions/authAction';
-import "../../asserts/commoncss/sidebar.css";
+import { logoutUser } from '../../../actions/authAction';
+import "../../../asserts/commoncss/sidebar.css";
 // import "../../asserts/commoncss/bootstrap.min.css";
 import { Link, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,7 +25,7 @@ import {
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
-class HRSidebar extends React.Component {
+class AssAccSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -165,33 +165,6 @@ class HRSidebar extends React.Component {
                 </h6>
                 </Link>
               </li>
-
-
-          {/* finance eke ewa */}
-
-              <li className={`listitem ${  active == "products" && "active_category"}`}>
-            <Link to="/finance/AccDashboard">
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                AccDashboard
-                </h6>
-                </Link>
-              </li>
-
-              <li className={`listitem ${  active == "products" && "active_category"}`}>
-            <Link to="/finance/AccExDashboard">
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                AccExDashboard
-                </h6>
-                </Link>
-              </li>
-
-              <li className={`listitem ${  active == "products" && "active_category"}`}>
-            <Link to="/finance/AssAccDashboard">
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                AssAccDashboard
-                </h6>
-                </Link>
-              </li>
              
 
           </ul>
@@ -201,7 +174,7 @@ class HRSidebar extends React.Component {
   }
 }
 
-HRSidebar.PropType = {
+AssAccSidebar.PropType = {
   logoutUser: PropType.func.isRequired,
   auth: PropType.object.isRequired,
 };
@@ -210,4 +183,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser }) (HRSidebar);
+export default connect(mapStateToProps, { logoutUser }) (AssAccSidebar);

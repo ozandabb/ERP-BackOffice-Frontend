@@ -2,8 +2,8 @@
 import React from "react";
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../actions/authAction';
-import "../../asserts/commoncss/sidebar.css";
+import { logoutUser } from '../../../actions/authAction';
+import "../../../asserts/commoncss/sidebar.css";
 // import "../../asserts/commoncss/bootstrap.min.css";
 import { Link, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,7 +25,7 @@ import {
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
-class HRSidebar extends React.Component {
+class AccExSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,7 +45,7 @@ class HRSidebar extends React.Component {
       <div>
         <nav className="navbar  py-0 shadow-sm  fixed-top" style={{ background: "#1E90FF" }} >
           <span className="navbar-brand mb-0 h6 text-light ml-2">
-            HR Management System
+            Accounts Executives
             <FontAwesomeIcon onClick={() => this.setState({ side_bar_toggle: !this.state.side_bar_toggle, }) }
               icon={faBars}
               className="ml-4 click show-icon"
@@ -60,14 +60,14 @@ class HRSidebar extends React.Component {
               <img src="/images/user2.jpg" className="rounded-circle sidebar-image my-auto"></img>
                     <div className="my-auto">
                                 <h6 style={{lineHeight: '12px', fontWeight: 600}}
-                                    className={`text-white mb-0 mt-1`}>HR Staff </h6>
+                                    className={`text-white mb-0 mt-1`}>Executives  </h6>
                                 <span className="small text-light ">@GamageUYT</span>
                     </div>
             </div>
           </div>
 
           <ul className="sidebar">
-            <Link to="/hrstaff">
+            <Link to="/finance/AccExDashboard">
               <li className="listitem" className={`listitem ${ active == "dashboard" && "active_category" }`} >
                 <h6 className={`categorylink px-2 ${ active == "dashboard" && "active_category" }`} >
                   Dashboard
@@ -76,16 +76,16 @@ class HRSidebar extends React.Component {
             </Link>
 
             
-            <Link to="/hrstaff/customer_registration">
+            <Link to="/finance/Purchases">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
-                 Customer Registration
+                Purchases
                 </h6>
               </li>
             </Link>
            
 
-            <Link to="/hrstaff/supplier_registration">
+            {/* <Link to="/hrstaff/supplier_registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Supplier Registration
@@ -155,40 +155,13 @@ class HRSidebar extends React.Component {
                   Supplier Profile
                 </h6>
               </li>
-            </Link>
+            </Link> */}
 
            
             <li onClick={this.onLogoutClick.bind(this)} className={`listitem ${  active == "products" && "active_category"}`}>
             <Link to="/">
                 <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
                   Logout
-                </h6>
-                </Link>
-              </li>
-
-
-          {/* finance eke ewa */}
-
-              <li className={`listitem ${  active == "products" && "active_category"}`}>
-            <Link to="/finance/AccDashboard">
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                AccDashboard
-                </h6>
-                </Link>
-              </li>
-
-              <li className={`listitem ${  active == "products" && "active_category"}`}>
-            <Link to="/finance/AccExDashboard">
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                AccExDashboard
-                </h6>
-                </Link>
-              </li>
-
-              <li className={`listitem ${  active == "products" && "active_category"}`}>
-            <Link to="/finance/AssAccDashboard">
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                AssAccDashboard
                 </h6>
                 </Link>
               </li>
@@ -201,7 +174,7 @@ class HRSidebar extends React.Component {
   }
 }
 
-HRSidebar.PropType = {
+AccExSidebar.PropType = {
   logoutUser: PropType.func.isRequired,
   auth: PropType.object.isRequired,
 };
@@ -210,4 +183,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser }) (HRSidebar);
+export default connect(mapStateToProps, { logoutUser }) (AccExSidebar);

@@ -18,6 +18,21 @@ import viewVehicleProfile from "../views/HR/view.vehicleProfile";
 //HR routes ENDS here
 
 
+//finance
+import AccDashboard from '../../src/views/finance/Accountant/AccDashoard';
+import BankAccount from '../../src/views/finance/Accountant/BankAccount';
+import EditBankAccount from '../../src/views/finance/Accountant/EditBankAccounts';
+
+import AccExDashboard from '../../src/views/finance/AccountsExecutive/AccExDashboard';
+import Purchases from '../../src/views/finance/AccountsExecutive/Purchases';
+import InvoicePosting from  '../../src/views/finance/AccountsExecutive/invoicePosting';
+import SupplierPayment from '../../src/views/finance/AccountsExecutive/SupplierPayment';
+import SupplierInvoices from '../../src/views/finance/AccountsExecutive/SupplierInvoices';
+
+import AssAccDashboard from '../../src/views/finance/Assistant Account/AssAccDashboard';
+
+
+
 let HRstaffRoutes = [
 
     //=====================================HR routes STARTS here==============================================
@@ -119,6 +134,63 @@ let HRstaffRoutes = [
      },
    //=====================================HR routes ends here==============================================
 
+
+   //finance - must change
+   {
+    path: "/finance/AccDashboard",
+    name: "AccDashboard",
+    component: AccDashboard,
+    exact: true,
+  },
+  {
+    path: "/finance/AccExDashboard",
+    name: "AccExDashboard",
+    component: AccExDashboard,
+    exact: true,
+  },
+  {
+    path: "/finance/AssAccDashboard",
+    name: "AssAccDashboard",
+    component: AssAccDashboard,
+    exact: true,
+  },
+  {
+    path: "/finance/BankAccount",
+    name: "BankAccount",
+    component: BankAccount,
+    exact: true,
+  },
+  {
+    path: "/finance/EditBankAccount",
+    name: "EditBankAccount",
+    component: EditBankAccount,
+    exact: true,
+  },
+  {
+    path: "/finance/Purchases",
+    name: "Purchases",
+    component: Purchases,
+    exact: true,
+  },
+  {
+    path: "/finance/InvoicePosting",
+    name: "InvoicePosting",
+    component: InvoicePosting,
+    exact: true,
+  },
+  {
+    path: "/finance/SupplierPayment",
+    name: "SupplierPayment",
+    component: SupplierPayment,
+    exact: true,
+  },
+  {
+    path: "/finance/SupplierInvoices",
+    name: "SupplierInvoices",
+    component: SupplierInvoices,
+    exact: true,
+  },
+  
 ];
 
 export default HRstaffRoutes;
