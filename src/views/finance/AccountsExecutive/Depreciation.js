@@ -1,112 +1,59 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
-import Select from 'react-select';
-import { FilePond } from "react-filepond";
-import "filepond/dist/filepond.min.css";
-// import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import AccExSidebar from "./AccExSidebar";
+import { Line as LineChart, Bar, Doughnut } from 'react-chartjs-2';
 import { faPen, faTrash, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class customerReg extends Component {
+// import { getAllSuppliers } from '../../controllers/supplier';
+// import { getAllDrivers } from '../../controllers/driver';
+// import { getAllCustomers } from '../../controllers/customer';
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            customerId :'',
-            customerName : '',
-            address : '',
-            phoneNo : '',
-            creditLimit : '',
-            credit : '',
-            selectedOption: null,
-        };
+class Depreciation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      AllSuppliers: [],
+      AllDrivers: [],
+      AllCustomers: [],
+    };
+  }
 
-    }
+//   componentDidMount() {
+//     this.loadSuppliers();
+//     this.loadDrivers();
+//     this.loadCustomers();
+//   }
 
-    // onSubmit = (e) => {
-    //     e.preventDefault();
-    
-    //     addCustomer({
-    //         customerId: this.state.customerId,
-    //         customerName: this.state.customerName,
-    //         address: this.state.address,
-    //         phoneNo: this.state.phoneNo,
-    //         creditLimit: this.state.creditLimit,
-    //         credit : this. state.credit
-        
-    //     })
-    // };
+//   loadCustomers = () => {
+//     getAllCustomers()
+//       .then(result => {
+//         this.setState({ AllCustomers: result });
+//       })
+//       .catch(err => {
+//       });
+//   };
 
-    // OnChangeCustomerID(e) {
-    //     this.setState({
-    //         customerId: e.target.value,
-    //     });
-    //   }
+//   loadSuppliers = () => {
+//     getAllSuppliers()
+//       .then(result => {
+//         this.setState({ AllSuppliers: result });
+//       })
+//       .catch(err => {
+//       });
+//   };
 
-    //   OnChangeName(e) {
-    //     this.setState({
-    //         customerName: e.target.value,
-    //     });
-    //   }
+//   loadDrivers = () => {
+//     getAllDrivers()
+//       .then(result => {
+//         this.setState({ AllDrivers: result });
+//       })
+//       .catch(err => {
+//       });
+//   };
 
-    //   OnChangeAddress(e) {
-    //     this.setState({
-    //         address: e.target.value,
-    //     });
-    //   }
-
-    //   OnChangeContact(e) {
-    //     this.setState({
-    //         phoneNo: e.target.value,
-    //     });
-    //   }
-
-    //   OnChangeCreditLimit(e) {
-    //     this.setState({
-    //         creditLimit: e.target.value,
-    //     });
-    //   }
-
-    //   OnChangeCredit(e) {
-    //     this.setState({
-    //         credit: e.target.value,
-    //     });
-    //   }
-
-    // state = {
-    //     selectedOption: null,
-    //   };
-
-
-
-    //   handleChange = selectedOption => {
-    //     this.setState({ selectedOption });
-    //     console.log(`Option selected:`, selectedOption);
-    //   };
-    
   render() {
-
-    const { selectedOption } = this.state;
-
-    const ProvinceOptions = [
-        { value: 'Central Province ', label: 'Central Province ' },
-        { value: 'Eastern Province ', label: 'Eastern Province ' },
-        { value: 'Northern Province', label: 'Northern Province' },
-        { value: 'Southern Province', label: 'Southern Province' },
-        { value: 'Western Province ', label: 'Western Province ' },
-        { value: 'North Western Province', label: 'North Western Province' },
-        { value: 'North Central Province', label: 'North Central Province' },
-        { value: 'Uva Province', label: 'Uva Province' },
-        { value: 'Sabaragamuwa Province', label: 'Sabaragamuwa Province' },
-      ];
-
-      const groupedOptions = [
-        {
-          label: 'province',
-          options: ProvinceOptions,
-        }
-    ]
+    // const { AllSuppliers, AllDrivers, AllCustomers } = this.state;
     return (
         <div className="bg-light wd-wrapper">
         <AccExSidebar />
@@ -127,10 +74,10 @@ class customerReg extends Component {
                                         {/* <a class="navbar-brand" href="#">Hidden brand</a> */}
                                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                                         <li class="nav-item active">
-                                            <a class="nav-link">Fixed Assets <span class="sr-only">(current)</span></a>
+                                            <a class="nav-link">Calculation <span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/finance/AddFixedAssets">Add Fixed Assets</a>
+                                            <a class="nav-link" href=""></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"></a>
@@ -165,14 +112,15 @@ class customerReg extends Component {
                                             <table className='table table-stripped'>
                                             <thead>
                                                 <tr style={{ color: '#1E90FF' }}>
-                                                <th>Item Code</th>
-                                                <th>Category</th>
-                                                <th>Name</th>
-                                                <th>Fixed Asset Class</th>
+                                                <th>Order ID</th>
+                                                <th>Reference</th>
+                                                <th>Customer</th>
+                                                <th>Branch</th>
                                                
-                                                <th>Depreciation Start</th>
-                                                <th>Item status:</th>
-                                                
+                                                <th>Order Date</th>
+                                                <th>Required Date</th>
+                                                <th>Delivery Date</th>
+                                                <th>Order Total</th>
                                                 <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -181,11 +129,12 @@ class customerReg extends Component {
                                                 <td>Doha Bank</td>
                                                 <td>Cash Account</td>
                                                 <td>LKR</td>
-                                               
+                                                <td>010203 CJ Banking</td>
+                                                <td>BOC</td>
                                                 <td>12414346547687989</td>
                                                 <td>Matara Super Branch</td>
                                                 <td>
-                                                     <Link to="/finance/editFixedAssets" >
+                                                     <Link >
                                                         <button className='btn btn-success btn-sm px-2 mr-2'>
                                                         <FontAwesomeIcon icon={faPen} />
                                                         </button>
@@ -212,5 +161,6 @@ class customerReg extends Component {
   }
 }
 
+const cardstyle = "card border-0 shadow-sm rounded mt-3 bg-white py-3 d-flex flex-row"
 
-export default withRouter(customerReg);
+export default withRouter(Depreciation);

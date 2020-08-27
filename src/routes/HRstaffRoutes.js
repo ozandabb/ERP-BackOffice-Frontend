@@ -33,6 +33,9 @@ import PaymentMethod from '../../src/views/finance/AccountsExecutive/PaymentMeth
 import Sales from '../../src/views/finance/AccountsExecutive/Sales';
 import SalesInvoicePosting from '../../src/views/finance/AccountsExecutive/SalesInvoicePosting';
 import FixedAssets from '../../src/views/finance/AccountsExecutive/FixedAssets';
+import AddFixedAssets from '../../src/views/finance/AccountsExecutive/AddFixedAssets';
+import editFixedAssets from '../../src/views/finance/AccountsExecutive/EditFixedAssets';
+import Depreciation from '../../src/views/finance/AccountsExecutive/Depreciation';
 
 import AssAccDashboard from '../../src/views/finance/Assistant Account/AssAccDashboard';
 
@@ -236,6 +239,26 @@ let HRstaffRoutes = [
     component: FixedAssets,
     exact: true,
   },
+  {
+    path: "/finance/AddFixedAssets",
+    name: "AddFixedAssets",
+    component: AddFixedAssets,
+    exact: true,
+  },
+  {
+    path: "/finance/editFixedAssets",
+    name: "editFixedAssets",
+    component: editFixedAssets,
+    exact: true,
+  },
+  {
+    path: "/finance/Depreciation",
+    name: "Depreciation",
+    component: Depreciation,
+    exact: true,
+  },
+  
+  
   
 
 //Assintant account
