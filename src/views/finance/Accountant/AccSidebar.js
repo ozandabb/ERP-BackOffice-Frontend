@@ -85,15 +85,15 @@ class AccSidebar extends React.Component {
             </Link>
            
 
-            {/* <Link to="/hrstaff/supplier_registration">
+            <Link to="/finance/FiscalYear">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
-                 Supplier Registration
+                 Fiscal Year
                 </h6>
               </li>
             </Link>
 
-            <Link to="/hrstaff/driver_registration">
+            {/* <Link to="/hrstaff/driver_registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Driver Registration
@@ -107,9 +107,9 @@ class AccSidebar extends React.Component {
                  Employee Registration
                 </h6>
               </li>
-            </Link>
+            </Link> */}
 
-            <Link to="/hrstaff/vehicle_Registration">
+            {/* <Link to="/hrstaff/vehicle_Registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Vehicle Registration
@@ -123,9 +123,9 @@ class AccSidebar extends React.Component {
                  Driver Profile
                 </h6>
               </li>
-            </Link>
+            </Link> */}
 
-            <Link to="/hrstaff/vehicleProfile">
+            {/* <Link to="/hrstaff/vehicleProfile">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Vehicle Profile
@@ -139,9 +139,9 @@ class AccSidebar extends React.Component {
                   Customer Profile
                 </h6>
               </li>
-            </Link>
+            </Link> */}
 
-            <Link to="/hrstaff/employeeProfile">
+            {/* <Link to="/hrstaff/employeeProfile">
               <li className={`listitem ${  active == "products" && "active_category" }`} >
                 <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
                   Employee Profile

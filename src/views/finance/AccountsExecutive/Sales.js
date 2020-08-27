@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { getAllDrivers } from '../../controllers/driver';
 // import { getAllCustomers } from '../../controllers/customer';
 
-class Purchases extends Component {
+class Sales extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -74,17 +74,19 @@ class Purchases extends Component {
                                         {/* <a class="navbar-brand" href="#">Hidden brand</a> */}
                                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                                         <li class="nav-item active">
-                                            <a class="nav-link">Purchase Orders <span class="sr-only">(current)</span></a>
+                                            <a class="nav-link">Sales Orders <span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/finance/InvoicePosting">Invoice Posting</a>
-                                        </li>
-                             
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/finance/SupplierPayment">Supplier Payment </a>
+                                            <a class="nav-link" href="/finance/SalesInvoicePosting">Invoice Posting</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/finance/SupplierInvoices">Suppliers Invoices</a>
+                                            <a class="nav-link" href="#"></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href=""> </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href=""></a>
                                         </li>
                                         {/* <li class="nav-item">
                                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -110,13 +112,14 @@ class Purchases extends Component {
                                             <table className='table table-stripped'>
                                             <thead>
                                                 <tr style={{ color: '#1E90FF' }}>
-                                                <th>ID</th>
+                                                <th>Order ID</th>
                                                 <th>Reference</th>
-                                                <th>Supplier</th>
-                                                <th>Location</th>
-                                                <th>Supplier's Reference</th>
+                                                <th>Customer</th>
+                                                <th>Branch</th>
+                                               
                                                 <th>Order Date</th>
-                                                <th>Currency</th>
+                                                <th>Required Date</th>
+                                                <th>Delivery Date</th>
                                                 <th>Order Total</th>
                                                 <th>Action</th>
                                                 </tr>
@@ -160,4 +163,4 @@ class Purchases extends Component {
 
 const cardstyle = "card border-0 shadow-sm rounded mt-3 bg-white py-3 d-flex flex-row"
 
-export default withRouter(Purchases);
+export default withRouter(Sales);

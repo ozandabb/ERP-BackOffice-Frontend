@@ -114,16 +114,14 @@ class SupplierPayment extends Component {
                                         {/* <a class="navbar-brand" href="#">Hidden brand</a> */}
                                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/finance/Purchases">Purchase Orders <span class="sr-only">(current)</span></a>
+                                            <a class="nav-link" href="/finance/Purchases">Purchase Orders </a>
                                         </li>
                                         <li class="nav-item ">
                                             <a class="nav-link" href="/finance/InvoicePosting">Invoice Posting</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Invoice Posting</a>
-                                        </li>
+                                       
                                         <li class="nav-item active" >
-                                            <a class="nav-link" href="/finance/SupplierPayment">Supplier Payment </a>
+                                            <a class="nav-link" href="/finance/SupplierPayment">Supplier Payment <span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="/finance/SupplierInvoices">Suppliers Invoices</a>

@@ -22,12 +22,17 @@ import viewVehicleProfile from "../views/HR/view.vehicleProfile";
 import AccDashboard from '../../src/views/finance/Accountant/AccDashoard';
 import BankAccount from '../../src/views/finance/Accountant/BankAccount';
 import EditBankAccount from '../../src/views/finance/Accountant/EditBankAccounts';
+import FiscalYear from '../../src/views/finance/Accountant/FiscalYear';
 
 import AccExDashboard from '../../src/views/finance/AccountsExecutive/AccExDashboard';
 import Purchases from '../../src/views/finance/AccountsExecutive/Purchases';
 import InvoicePosting from  '../../src/views/finance/AccountsExecutive/invoicePosting';
 import SupplierPayment from '../../src/views/finance/AccountsExecutive/SupplierPayment';
 import SupplierInvoices from '../../src/views/finance/AccountsExecutive/SupplierInvoices';
+import PaymentMethod from '../../src/views/finance/AccountsExecutive/PaymentMethod';
+import Sales from '../../src/views/finance/AccountsExecutive/Sales';
+import SalesInvoicePosting from '../../src/views/finance/AccountsExecutive/SalesInvoicePosting';
+import FixedAssets from '../../src/views/finance/AccountsExecutive/FixedAssets';
 
 import AssAccDashboard from '../../src/views/finance/Assistant Account/AssAccDashboard';
 
@@ -135,25 +140,42 @@ let HRstaffRoutes = [
    //=====================================HR routes ends here==============================================
 
 
-   //finance - must change
+
+
+
+
+
+
+
+
+
+
+
+   //===========finance - must change==============
+
+   //Accountant
    {
     path: "/finance/AccDashboard",
     name: "AccDashboard",
     component: AccDashboard,
     exact: true,
   },
+  
+  {
+    path: "/finance/FiscalYear",
+    name: "FiscalYear",
+    component: FiscalYear,
+    exact: true,
+  },
+
+  //Accountant Executive
   {
     path: "/finance/AccExDashboard",
     name: "AccExDashboard",
     component: AccExDashboard,
     exact: true,
   },
-  {
-    path: "/finance/AssAccDashboard",
-    name: "AssAccDashboard",
-    component: AssAccDashboard,
-    exact: true,
-  },
+ 
   {
     path: "/finance/BankAccount",
     name: "BankAccount",
@@ -190,6 +212,40 @@ let HRstaffRoutes = [
     component: SupplierInvoices,
     exact: true,
   },
+  {
+    path: "/finance/PaymentMethod",
+    name: "PaymentMethod",
+    component: PaymentMethod,
+    exact: true,
+  },
+  {
+    path: "/finance/Sales",
+    name: "Sales",
+    component: Sales,
+    exact: true,
+  },
+  {
+    path: "/finance/SalesInvoicePosting",
+    name: "SalesInvoicePosting",
+    component: SalesInvoicePosting,
+    exact: true,
+  },
+  {
+    path: "/finance/FixedAssets",
+    name: "FixedAssets",
+    component: FixedAssets,
+    exact: true,
+  },
+  
+
+//Assintant account
+  {
+    path: "/finance/AssAccDashboard",
+    name: "AssAccDashboard",
+    component: AssAccDashboard,
+    exact: true,
+  },
+  
   
 ];
 

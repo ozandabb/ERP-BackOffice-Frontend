@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { getAllDrivers } from '../../controllers/driver';
 // import { getAllCustomers } from '../../controllers/customer';
 
-class InvoicePosting extends Component {
+class SalesInvoicePosting extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -115,17 +115,19 @@ class InvoicePosting extends Component {
                                         {/* <a class="navbar-brand" href="#">Hidden brand</a> */}
                                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/finance/Purchases">Purchase Orders </a>
+                                            <a class="nav-link" href="/finance/Sales">Sales Orders </a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="/finance/InvoicePosting">Invoice Posting <span class="sr-only">(current)</span></a>
-                                        </li>
-                                      
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/finance/SupplierPayment">Supplier Payment </a>
+                                            <a class="nav-link" href="/finance/SalesInvoicePosting">Invoice Posting<span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/finance/SupplierInvoices">Suppliers Invoices</a>
+                                            <a class="nav-link" href="#"></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href=""> </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href=""></a>
                                         </li>
                                         {/* <li class="nav-item">
                                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -153,13 +155,13 @@ class InvoicePosting extends Component {
 
                                              {/*---------Bank Account Name --------------  */}
                                              <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">ID</h6>
+                                                <h6 className="form-label py-1">Order ID</h6>
                                                 <input
                                                     type="text"
                                                     name="name"
                                                     // value={name}
                                                     // onChange={(e) => this.formValueChange(e)}
-                                                    placeholder="Enter ID"
+                                                    placeholder="Enter Order ID"
                                                     className="form-control" ></input>
                                                 {/* {errors.name && errors.name.length > 0 &&
                                                     <h4 className="small text-danger mt-2 font-weight-bold mb-0">{errors.name}</h4>} */}
@@ -181,12 +183,12 @@ class InvoicePosting extends Component {
 
                                             {/*---------Default currency account--------------  */}
                                             <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Supplier </h6>
+                                                <h6 className="form-label py-1">Customer </h6>
                                                 <Select
                                                     closeMenuOnSelect={false}
                                                     defaultValue={this.state.sizes}
                                                     onChange={this.handleChangeSizes}
-                                                    placeholder="Select Supplier"
+                                                    placeholder="Select Customer"
                                                     options={groupedOptions2}
                                                 />
                                                 {/* {errors.sizes && errors.sizes.length > 0 &&
@@ -196,7 +198,7 @@ class InvoicePosting extends Component {
 
                                             {/*---------Bank Account Currency:-------------  */}
                                             <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Location</h6>
+                                                <h6 className="form-label py-1">Location | Branch</h6>
                                                 <Select
                                                     closeMenuOnSelect={false}
                                                     defaultValue={this.state.sizes}
@@ -210,12 +212,12 @@ class InvoicePosting extends Component {
 
                                              {/*---------Bank Account GL Code-------------  */}
                                              <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Supplier's Reference</h6>
+                                                <h6 className="form-label py-1">Order Date</h6>
                                                 <Select
                                                     closeMenuOnSelect={false}
                                                     defaultValue={this.state.sizes}
                                                     onChange={this.handleChangeSizes}
-                                                    placeholder="Select Supplier's Reference"
+                                                    placeholder="Select Order Date"
                                                     options={groupedOptions}
                                                 />
                                                 {/* {errors.sizes && errors.sizes.length > 0 &&
@@ -224,12 +226,12 @@ class InvoicePosting extends Component {
 
                                             {/*---------Bank Charges Account-------------  */}
                                             <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Order Date</h6>
+                                                <h6 className="form-label py-1">Required Date</h6>
                                                 <Select
                                                     closeMenuOnSelect={false}
                                                     defaultValue={this.state.sizes}
                                                     onChange={this.handleChangeSizes}
-                                                    placeholder="Select Order Date"
+                                                    placeholder="Select Required Date"
                                                     options={groupedOptions2}
                                                 />
                                                 {/* {errors.sizes && errors.sizes.length > 0 &&
@@ -238,21 +240,21 @@ class InvoicePosting extends Component {
 
 
                                             {/*---------Product sizes--------------  */}
-                                            <div className="col-md-4 mt-2">
-                                                <h6 className="form-label py-1">Currency</h6>
+                                            <div className="col-sm-8 mt-2">
+                                                <h6 className="form-label py-1">Delivery to</h6>
                                                 <input
                                                     type="text"
                                                     name="name"
                                                     // value={name}
                                                     // onChange={(e) => this.formValueChange(e)}
-                                                    placeholder="Enter Currency"
+                                                    placeholder="Enter Delivery Place"
                                                     className="form-control" ></input>
                                                 {/* {errors.sizes && errors.sizes.length > 0 &&
                                                     <h4 className="small text-danger mt-2 font-weight-bold mb-0">{errors.sizes}</h4>} */}
                                             </div>
 
                                             {/*---------Product sizes--------------  */}
-                                            <div className="col-md-4 mt-2">
+                                            <div className="col-sm-4 mt-2">
                                                 <h6 className="form-label py-1">Order Total</h6>
                                                 <input
                                                     type="text"
@@ -280,7 +282,7 @@ class InvoicePosting extends Component {
                                             <div className="col-md-12 mt-3">
                                             <div className="d-flex">
                                                     <button className="px-4 btn btn-dark  btn-sm bold-normal" type="submit">
-                                                         Add Invoice Details</button>
+                                                         Add Sales Order Details</button>
                                                 </div>
                                             </div>
 
@@ -301,4 +303,4 @@ class InvoicePosting extends Component {
 
 const cardstyle = "card border-0 shadow-sm rounded mt-3 bg-white py-3 d-flex flex-row"
 
-export default withRouter(InvoicePosting);
+export default withRouter(SalesInvoicePosting);

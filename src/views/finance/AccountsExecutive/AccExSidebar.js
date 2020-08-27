@@ -75,6 +75,14 @@ class AccExSidebar extends React.Component {
               </li>
             </Link>
 
+            <Link to="/finance/Sales">
+              <li className={`listitem ${ active == "add_products" && "active_category" }`}>
+                <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
+                 Sales
+                </h6>
+              </li>
+            </Link>
+
             
             <Link to="/finance/Purchases">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
@@ -85,31 +93,25 @@ class AccExSidebar extends React.Component {
             </Link>
            
 
-            {/* <Link to="/hrstaff/supplier_registration">
+            
+
+            <Link to="/finance/FixedAssets">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
-                 Supplier Registration
+                 Fixed Asstes
                 </h6>
               </li>
             </Link>
 
-            <Link to="/hrstaff/driver_registration">
-              <li className={`listitem ${ active == "add_products" && "active_category" }`}>
-                <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
-                 Driver Registration
-                </h6>
-              </li>
-            </Link>
-
-            <Link to="/hrstaff/employee_registration">
+            {/* <Link to="/hrstaff/employee_registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Employee Registration
                 </h6>
               </li>
-            </Link>
+            </Link> */}
 
-            <Link to="/hrstaff/vehicle_Registration">
+            {/* <Link to="/hrstaff/vehicle_Registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
                  Vehicle Registration
@@ -123,33 +125,33 @@ class AccExSidebar extends React.Component {
                  Driver Profile
                 </h6>
               </li>
-            </Link>
+            </Link> */}
 
-            <Link to="/hrstaff/vehicleProfile">
+            <Link to="/finance/PaymentMethod">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
-                 Vehicle Profile
+                 Payment Methods
                 </h6>
               </li>
             </Link>
 
-            <Link to="/hrstaff/customerProfile">
+            {/* <Link to="/hrstaff/customerProfile">
               <li className={`listitem ${  active == "products" && "active_category" }`} >
                 <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
                   Customer Profile
                 </h6>
               </li>
-            </Link>
+            </Link> */}
 
-            <Link to="/hrstaff/employeeProfile">
+            {/* <Link to="/hrstaff/employeeProfile">
               <li className={`listitem ${  active == "products" && "active_category" }`} >
                 <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
                   Employee Profile
                 </h6>
               </li>
-            </Link>
+            </Link> */}
 
-            <Link to="/hrstaff/supplierProfile">
+            {/* <Link to="/hrstaff/supplierProfile">
               <li className={`listitem ${  active == "products" && "active_category" }`} >
                 <h6 className={`categorylink px-2 ${ active == "products" && "active_category"}`} >
                   Supplier Profile
