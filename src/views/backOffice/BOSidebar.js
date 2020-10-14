@@ -134,29 +134,7 @@ class BOSidebar extends React.Component {
 
               {/* finance eke ewa */}
 
-              <li  className={`listitem ${  active == "products" && "active_category"}`}>
-              <Link to="/">
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                  Logout
-                </h6>
-                </Link>
-              </li>
-
-              <li  className={`listitem ${  active == "products" && "active_category"}`}>
-              <Link to="/">
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                  Logout
-                </h6>
-                </Link>
-              </li>
-
-              <li className={`listitem ${  active == "products" && "active_category"}`}>
-              <Link to="/">
-                <h6 className={`categorylink px-2 ${ active == "products" && "active_category" }`} >
-                  Logout
-                </h6>
-                </Link>
-              </li>
+             
              
          
           </ul>

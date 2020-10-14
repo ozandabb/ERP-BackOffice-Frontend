@@ -55,6 +55,11 @@ class HRDashboard extends Component {
   render() {
     const { AllSuppliers, AllDrivers, AllCustomers } = this.state;
     return (
+
+    //   <div className="app" >
+    // <Sidebar activemenu={'STUDENT'}   submenu={'STUDENT_TB_LIST'} />
+    // <main></main>
+    // </div>
       <div className="bg-light wd-wrapper">
         <HRSidebar />
           <div className="wrapper-wx">
@@ -148,51 +153,10 @@ class HRDashboard extends Component {
                             </h6> 
                             </Link>       
                           </div>
-
-                          {/* <div class="col-sm">
-                            <h6 className="text-dark bold-normal py-2 bg-white shadow-sm px-2 mt-3 rounded">
-                                <div className="row">
-                                            <div className="col">
-                                                    <div className="card border-0 shadow-sm rounded mt-1 bg-white pb-2" style={{padding:"10px", color:"#929b94"}}> 
-                                                        <div className="row">
-                                                            <div className="col-4">
-                                                                    <center><img src="/images/money.png" className="img-fluid my-auto" style={{width:"90px"}}/></center>
-                                                            </div>
-                                                            <div className="col-8">
-                                                                    <h6 style={{color: "green" }}>Customers </h6> 
-                                                                    <h6>45,000 LKR</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                </div>
-                            </h6>        
-                          </div> */}
  
                     </div>
                     <div className="row">
-                       {/* <div className="col-md-6 mt-3">
-                                            <div className="campaign ct-charts px-3">
-                                                <h6 className="mt-2 mb-3">User Registration in past years</h6>
-                                                <Bar data={{
-                                                    labels: Yyears,
-                                                    datasets: [
-                                                        {
-                                                            label: "Users",
-                                                            backgroundColor: 'rgba(220, 231, 117,0.5)',
-                                                            borderColor: 'rgba(220, 231, 117,1.0)',
-                                                            borderWidth: 1,
-                                                            hoverBackgroundColor: 'rgba(220, 231, 117,0.4)',
-                                                            hoverBorderColor: 'rgba(220, 231, 117,1)',
-                                                            data: Yuser
-                                                        }
-                                                    ]
-                                                }}
-                                                    options={options1}
-                                                    width="600" height="220" />
-                                            </div>
-
-                                        </div> */}
+ 
                     </div>
 
                

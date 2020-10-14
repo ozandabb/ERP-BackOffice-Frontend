@@ -1,5 +1,5 @@
 .sidebar_wrap {
-  background: #393f46;
+  background: #1d1d1d;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   -moz-transition: width 0.8s ease-in-out;
   -o-transition: width 0.8s ease-in-out;
   transition: width 0.8s ease-in-out;
-  width: 250px;
+  width: 300px;
 }
 
 .sidebar-top {
@@ -57,7 +57,7 @@ ul.sidebar {
 }
 
 .wrapper-wx {
-  padding-left: 250px;
+  padding-left: 300px;
   -webkit-transition: padding 0.8s ease-in-out;
   -moz-transition: padding 0.8s ease-in-out;
   -o-transition: padding 0.8s ease-in-out;
@@ -130,7 +130,7 @@ ul.sidebar {
 }
 
 .sidebar_active {
-  width: 250px !important;
+  width: 300px !important;
 }
 
 .react-confirm-alert-overlay {

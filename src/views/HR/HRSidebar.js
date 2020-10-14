@@ -3,27 +3,12 @@ import React from "react";
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authAction';
+import { ProSidebar, Menu, MenuItem, SubMenu , SidebarHeader , SidebarContent , SidebarFooter } from 'react-pro-sidebar';
+import { faTable, faBars , faPlusSquare  , faAddressBook, faAtom, faTachometerAlt, faGlobe, faHome, faChalkboard, faAd, faChartBar, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 import "../../asserts/commoncss/sidebar.css";
-// import "../../asserts/commoncss/bootstrap.min.css";
 import { Link, withRouter } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faEnvelopeSquare,
-  faBars,
-  faTags,
-  faBarcode,
-  faClipboardCheck,
-  faGift,
-  faPlusSquare,
-  faTachometerAlt,
-  faComment,
-  faHome,
-  faUserSecret,
-  faUsers,
-  faSuitcase,
-  faSignOutAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 class HRSidebar extends React.Component {
   constructor(props) {
@@ -43,7 +28,7 @@ class HRSidebar extends React.Component {
     const { active } = this.props;
     return (
       <div>
-        <nav className="navbar  py-0 shadow-sm  fixed-top" style={{ background: "#1E90FF" }} >
+        <nav className="navbar  py-0 shadow-sm  fixed-top" style={{ background: "#1d1d1d" }} >
           <span className="navbar-brand mb-0 h6 text-light ml-2">
             HR Management System
             <FontAwesomeIcon onClick={() => this.setState({ side_bar_toggle: !this.state.side_bar_toggle, }) }
@@ -66,7 +51,21 @@ class HRSidebar extends React.Component {
             </div>
           </div>
 
-          <ul className="sidebar">
+          <ProSidebar>
+            <Menu iconShape="square">
+              <MenuItem Link to="/hrstaff" icon={<FontAwesomeIcon icon={faTachometerAlt} />}>Dashboard</MenuItem>
+              {/* <SidebarHeader>Registration</SidebarHeader> */}
+              <SubMenu title="Registration" icon={<FontAwesomeIcon icon={faTachometerAlt} />}>
+                <MenuItem >Customer Registration<Link to="/hrstaff/customer_registration"/></MenuItem>
+                <MenuItem>Supplier Registration<Link to="/hrstaff/supplier_registration"></Link></MenuItem>
+                <MenuItem >Employee Registration<Link to="/hrstaff/employee_registration"/></MenuItem>
+                <MenuItem>Driver Registration<Link to="/hrstaff/driver_registration"/></MenuItem>
+                <MenuItem >Vehicle Registration<Link to="/hrstaff/vehicle_Registration"/></MenuItem>
+              </SubMenu>
+            </Menu>
+          </ProSidebar>
+
+          {/* <ul className="sidebar">
             <Link to="/hrstaff">
               <li className="listitem" className={`listitem ${ active == "dashboard" && "active_category" }`} >
                 <h6 className={`categorylink px-2 ${ active == "dashboard" && "active_category" }`} >
@@ -79,7 +78,7 @@ class HRSidebar extends React.Component {
             <Link to="/hrstaff/customer_registration">
               <li className={`listitem ${ active == "add_products" && "active_category" }`}>
                 <h6  className={`categorylink px-2 ${ active == "add_products" && "active_category" }`} >
-                 Customer Registration
+                <FontAwesomeIcon icon={faTags} className="mx-3 sidebar-icon"></FontAwesomeIcon>Customer Registration
                 </h6>
               </li>
             </Link>
@@ -167,7 +166,7 @@ class HRSidebar extends React.Component {
               </li>
 
 
-          {/* finance eke ewa */}
+
 
               <li className={`listitem ${  active == "products" && "active_category"}`}>
             <Link to="/finance/AccDashboard">
@@ -194,7 +193,7 @@ class HRSidebar extends React.Component {
               </li>
              
 
-          </ul>
+          </ul> */}
         </div>
       </div>
     );

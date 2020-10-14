@@ -7,6 +7,7 @@ import { setCurrentUser, logoutUser } from "../src/actions/authAction"
 import {store, persistor } from "../src/store/store"
 import RootRouter from "./RootRouter";
 import { toast } from 'react-toastify';
+import './custom.scss'
 import 'react-toastify/dist/ReactToastify.css';
 import "../src/asserts/commoncss/alerts.css";
 

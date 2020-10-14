@@ -252,11 +252,11 @@ onChange = e =>{
                 </h6>
 
                 <div className="col-12">
-                    <h6 className="form-label py-1">Supplier Full Name</h6>
+                    {/* <h6 className="form-label py-1">Supplier Full Name</h6> */}
                       <input
                                         type="text"
                                                     name="Supplier name"
-                                                    placeholder="Enter Supplier's Full Name" 
+                                                    placeholder="Search by name" 
                                                     // value={this.state.name}
                                                     onChange={ this.onChange}
                                                     className="form-control" ></input>

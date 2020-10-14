@@ -143,7 +143,7 @@ class viewCashCollectorDetails extends Component {
                                 </div>
                             </div>
                          </div>
-                         <button type="button" class="btn btn-success form-control">Build Order</button>
+                         
                 </h6>
               </div>
             </div>
